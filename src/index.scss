@@ -1,0 +1,47 @@
+@import './assets//styles/colors.scss';
+
+@font-face{
+  font-family: 'Inter-Regular';
+  src: url('./assets//fonts/inter/Inter-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'Montserrat-SemiBold';
+  src: url('./assets/fonts/montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face{
+  font-family: 'Montserrat-Regular';
+  src: url('./assets/fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'Montserrat-Bold';
+  src: url('./assets/fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face{
+  font-family: 'Inter-SemiBold';
+  src: url('./assets/fonts/inter/Inter-SemiBold.ttf');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// body {
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
+

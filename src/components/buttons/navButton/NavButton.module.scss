@@ -1,0 +1,18 @@
+.container{
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Inter-SemiBold',sans-serif;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 20px 27px;
+    background: transparent;
+    cursor: pointer;
+    span{
+        font-size: 23px;
+    }
+}

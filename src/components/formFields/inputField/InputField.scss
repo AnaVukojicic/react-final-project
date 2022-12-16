@@ -1,0 +1,19 @@
+.__input_field{
+    width: 450px;
+    height: 52px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 18px 33px;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: 'Inter-Regular',sans-serif;
+    &::placeholder {
+        color: #000000;
+    }   
+    &:-ms-input-placeholder {
+        color: #000000;
+    }   
+    &::-ms-input-placeholder {
+        color: #000000;
+    }
+}
