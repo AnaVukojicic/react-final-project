@@ -1,0 +1,65 @@
+.container{
+    padding: 92px 100px 0 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 73px;
+    .cards{
+        display: flex;
+        justify-content: space-between;
+        @media screen and (max-width:1100px){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+    }
+    .chart-container{
+        padding-bottom: 53px;
+        .title{
+            padding:0 44px 21px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);;
+            h3{
+                font-family: 'Montserrat-ExtraBold',sans-serif;
+                color: #140C6F;
+                font-size: 22px;
+                line-height: 27px;
+                text-align: center;
+            }
+            .buttons{
+                display: flex;
+                gap: 31px;
+                @media screen and (max-width:750px){
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            @media screen and (max-width:1100px){
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+            }
+        }
+        .chart{
+            width: calc(100vw - 200px);
+            height: 571px;
+            padding: 63px 68px;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            margin-top: 53px;
+            @media screen and (max-width:750px){
+                width: calc(100vw - 60px);
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    @media screen and (max-width:750px){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

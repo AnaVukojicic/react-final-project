@@ -17,7 +17,7 @@ const AuthLayout=({page,children})=>{
             <div className={classes['sign-up']}>
                 {page==='register' &&
                     <p>
-                        Already have an account ? <span><Link to='/'>Sign in</Link></span>
+                        Already have an account ? <span><Link to='/login'>Sign in</Link></span>
                     </p>
                 }
                 {page==='login' &&
