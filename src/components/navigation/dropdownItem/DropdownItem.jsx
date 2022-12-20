@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import UserIcon from '../../../images/UserIcon.svg';
 import './DropdownItem.scss';
 
-const DropdownItem=()=>{
+const DropdownItem=({closeNav})=>{
     const [opened,setOpened]=useState(false);
 
     const changeOpened=()=>{
@@ -13,6 +13,7 @@ const DropdownItem=()=>{
 
     const setOpenedToFalse=()=>{
         setOpened(false)
+        closeNav();
     }
 
     const logout=()=>{
@@ -21,7 +22,9 @@ const DropdownItem=()=>{
 
     const items=[
         {
-            label: <Link to='/change-profile' className="_subitems" onClick={setOpenedToFalse}>Izmjena profila</Link>,
+            label: <div className="_subitems">
+                        <Link to='/change-profile' onClick={setOpenedToFalse}>Izmjena profila</Link>
+                    </div>,
             key: 'updateProfile'
         },
         {

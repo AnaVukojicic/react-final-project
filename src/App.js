@@ -3,6 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import './App.css';
 import DefaultLayout from './components/layouts/defaultLayout/DefaultLayout';
 import { queryClientConfig } from './config/queryClientConfig';
+import HistoryPage from './pages/historyPage/HistoryPage';
 import HomePage from './pages/homePage/HomePage';
 import LoginPage from './pages/loginPage/LoginPage';
 import RegisterPage from './pages/registerPage/RegisterPage';
@@ -16,6 +17,7 @@ const router=createBrowserRouter(
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/' element={<DefaultLayout/>}>
         <Route path='home' element={<HomePage/>}/>
+        <Route path='history' element={<HistoryPage/>}/>
       </Route>
     </>
   )

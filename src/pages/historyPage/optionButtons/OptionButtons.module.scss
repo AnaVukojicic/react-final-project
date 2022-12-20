@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    gap: 10px;
+    button{
+        background-color: rgba(225, 225, 225, 0.6);
+        border: none;
+        border-radius: 6px;
+        padding: 5px;
+        width: 39px;
+        height: 35px;
+        cursor: pointer;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

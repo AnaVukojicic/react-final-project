@@ -21,24 +21,28 @@ const Navigation=()=>{
                             <img src={Logo} alt='logo'/>
                         </div>
                     </Link>,
-            key: 'home'
+            key: 'home',
+            onClick: ()=>{setShowNav(false)}
         },
         {
             label: <Link to='/history'>Istorija transakcija</Link>,
-            key: 'history'
+            key: 'history',
+            onClick: ()=>{setShowNav(false)}
         },
         {
             label: <Link to='/categories'>Kategorije</Link>,
-            key: 'categories'
+            key: 'categories',
+            onClick: ()=>{setShowNav(false)}
         },
         {
             label: <Link to='/add-transaction'>
                         <NavButton label='Dodaj transakciju'/>
                     </Link>,
-            key: 'add'
+            key: 'add',
+            onClick: ()=>{setShowNav(false)}
         },
         {
-            label: <DropdownItem/>,
+            label: <DropdownItem closeNav={()=>setShowNav(false)}/>,
             key: 'user'
         }
     ]

@@ -1,0 +1,88 @@
+.__container_options{
+    display: flex;
+    gap: 25px;
+    .__radio_buttons{
+        display: flex;
+        div{
+            display: flex;
+            align-items: center;
+            input{
+                margin-right: 14px;
+                width: 20px;
+                height: 20px;
+                accent-color: #140C6F;
+            }
+            label{
+                padding-right: 14px;
+                font-family: 'Inter-Medium',sans-serif;
+                font-size: 18px;
+                line-height: 22px;
+                color: #140C6F;
+            }
+        }
+    }
+    .__other_inputs{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 19px;
+        .__wrapper{
+            max-width:300px;
+        }
+        input{
+            padding: 19px 16px;
+            &::placeholder {
+                color: #B7B7B7;
+            }
+              
+            &:-ms-input-placeholder {
+                color: #B7B7B7;
+            }
+              
+            &::-ms-input-placeholder {
+                color: #B7B7B7;
+            }
+        }
+        .ant-select-selection-placeholder,.ant-select-selection-item{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .ant-select-selection-placeholder{
+            color: #B7B7B7;
+        }
+        .ant-picker{
+            padding: 0;
+        }
+        .ant-select-selector{
+            height: 61px;
+        }
+        .ant-picker-suffix,.ant-picker-clear{
+            padding-right: 10px;
+        }
+        @media screen and (max-width:750px){
+            flex-direction: column;
+            max-width: 350px;
+        }
+    }
+    .__button_container{
+        display: flex;
+        align-items: center;
+        @media screen and (max-width:1100px){
+            width: 100%;
+            button{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:750px){
+            max-width: 350px;
+            button{
+                width: 100%;
+            }
+        }
+    }
+    @media screen and (max-width:1100px){
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}

@@ -46,15 +46,18 @@
         height: 100%;
         padding-top: 90px;
     }
-    .subitems,span{
+    ._subitems,span{
         text-decoration: none;
         font-family: 'Montserrat-SemiBold',sans-serif;
         font-size: 22px;
         color: #FFFFFF;
         padding: 0 5px;
         text-align: center;
+        a{
+            color: #FFFFFF;
+        }
     }
-    .subitems{
+    ._subitems,a{
         cursor: pointer;
         &:hover{
             color: #140C6F;

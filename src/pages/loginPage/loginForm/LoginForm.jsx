@@ -18,7 +18,6 @@ const LoginForm=()=>{
     const login=(email,password)=>{
         authService.login(email,password)
             .then(res=>{
-                console.log(res)
                 storageService.set(storageKeys.TOKEN,res.getAccessToken())
                 setTimeout(()=>{
                     navigate('/home')
@@ -39,7 +38,6 @@ const LoginForm=()=>{
     const {handleSubmit, control, formState:{errors}}=useForm({resolver: yupResolver(shema)})
 
     const submitForm=(data)=>{
-        console.log(data)
         login(data.email,data.password)
     }
     
