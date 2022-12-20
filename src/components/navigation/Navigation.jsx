@@ -28,7 +28,7 @@ const Navigation=()=>{
             key: 'history'
         },
         {
-            label: <Link to='/history'>Kategorije</Link>,
+            label: <Link to='/categories'>Kategorije</Link>,
             key: 'categories'
         },
         {

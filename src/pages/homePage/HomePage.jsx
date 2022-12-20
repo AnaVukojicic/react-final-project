@@ -1,31 +1,22 @@
 import React, { useState } from 'react';
 import classes from './HomePage.module.scss';
 import TransactionCard from '../../components/transactionCard/TransactionCard';
-import { expenseService } from '../../services/ExpenseService';
 import { useQuery } from 'react-query';
 import ChartButton from '../../components/buttons/chartButton/ChartButton';
 import Chart from './chart/Chart';
 import dayjs from 'dayjs';
-import { months, types } from '../../constants/constants';
+import { months, typeParams, types } from '../../constants/constants';
+import { dashboardService } from '../../services/DashboardService';
 
 const HomePage=()=>{
     const [buttonType,setButtonType]=useState(types[0])
-    const [month,setMonth]=useState(`${months[dayjs().month()]} ${dayjs().year()}`)
-    const [monthParam,setMonthParam]=useState(dayjs().month());
-    const [yearParam,setYearParam]=useState(dayjs().year());
+    const [buttonMonth,setButtonMonth]=useState(`${months[dayjs().month()]} ${dayjs().year()}`)
+    const [monthParam,setMonthParam]=useState(dayjs().month()+1);
+    const [typeParam,setTypeParam]=useState(typeParams[0]);
 
-    const {data:profits}=useQuery(
-        ['profits'],
-        ()=>expenseService.getProfitOrExpenseSum("income"),
-        {
-            enabled:true,
-            initialData:[]
-        }
-    )
-
-    const {data:expenses}=useQuery(
-        ['expenses'],
-        ()=>expenseService.getProfitOrExpenseSum("expense"),
+    const {data:report}=useQuery(
+        ['reports'],
+        ()=>dashboardService.getIncomesExpenses(),
         {
             enabled:true,
             initialData:[]
@@ -35,33 +26,33 @@ const HomePage=()=>{
     const cards=[
         {
             title: "Trenutno stanje na računu",
-            amount: profits-expenses,
+            amount: report.balance,
             type: "total"
         },
         {
             title: "Prihodi",
-            amount: profits,
+            amount: report.incomes,
             type: "profit"
         },
         {
             title: "Troškovi",
-            amount: expenses,
+            amount: report.expenses,
             type: "expense"
         }
     ]
 
     const handleTypeClick=(index)=>{
         setButtonType(types[index])
+        setTypeParam(typeParams[index])
     }
 
     const handleMonthClick=(index)=>{
-        setMonth(dayjs().month()>=index ?
+        setButtonMonth(dayjs().month()>=index ?
                     `${months[dayjs().month()-index]} ${dayjs().year()}`
                 :
                     `${months[12-index+dayjs().month()]} ${dayjs().subtract(1,'year').year()}`
         )
         setMonthParam(dayjs().month()>=index ? dayjs().month()-index+1 : 12-index+dayjs().month()+1)
-        setYearParam(dayjs().month()>=index ? dayjs().year() : dayjs().year()-1)
     }
 
     const data1=types.map((type,index)=>{
@@ -102,11 +93,11 @@ const HomePage=()=>{
                     <h3>Trenutno stanje</h3>
                     <div className={classes['buttons']}>
                         <ChartButton label={buttonType} data={data1}/>
-                        <ChartButton label={month} data={data2}/>
+                        <ChartButton label={buttonMonth} data={data2}/>
                     </div>
                 </div>
                 <div className={classes['chart']}>
-                    <Chart type="" month={monthParam} year={yearParam}/>
+                    <Chart type={typeParam} month={monthParam}/>
                 </div>
             </div>
         </div>

@@ -65,6 +65,13 @@
     }
 }
 
+.ant-menu-item-selected{
+    color: #FFA800 !important;
+    &:hover{
+        color: #FFA800 !important;
+    }
+}
+
 .__remove_nav{
     @media screen and (max-width:1100px){
         transition: 1s ease-in-out;

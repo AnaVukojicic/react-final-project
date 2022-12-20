@@ -13,33 +13,15 @@ class Expenseservice{
         date: 'entry_date='
     }
 
-    getAllExpenses(){
-        return requestInstance.get(this.api.expenses)
+    getAllTransactions(type='',description='',category='',date=''){
+        const typeParam=type.length>0 ? `?${this.params.type}${type}` : '';
+        const descriptionParam=description.length>0 ? (typeParam ? '&' : '?' `${this.params.description}${description}`) : '';
+        const categoryParam=category.length>0 ? ((typeParam || descriptionParam) ? '&' : '?' `?${this.params.category}${category}`) : '';
+        const dateParam=date.length>0 ? ((typeParam || descriptionParam || categoryParam) ? '&' : '?' `?${this.params.date}${date}`) : '';
+        return requestInstance.get(`${this.api.expenses}${typeParam}${descriptionParam}${categoryParam}${dateParam}`)
             .then(res=>res?.data?.data.map(expense=>new ExpenseModel(expense)))
             .catch(err=>Promise.reject(err))
     }
-
-    getProfitOrExpenseSum(type){
-        return this.getAllExpenses()
-            .then(res=>{
-                let amount=0;
-                const items=res.filter(expense=>expense?.type===type)
-                items.forEach((item)=>{
-                    return amount+=parseFloat(item.amount)
-                })
-                return amount;
-            })
-            .catch(err=>Promise.reject(err))
-    }
-
-    getAllProfitsOrExpenses(type){
-        return this.getAllExpenses()
-            .then(res=>{
-                return res.filter(expense=>expense.type===type)
-            })
-            .catch(err=>Promise.reject(err))
-    }
-
 }
 
 export const expenseService=new Expenseservice()
