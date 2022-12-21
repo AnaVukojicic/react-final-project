@@ -1,10 +1,12 @@
 import { Dropdown } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useUser } from "../../../contexts/UserContext";
 import UserIcon from '../../../images/UserIcon.svg';
 import './DropdownItem.scss';
 
 const DropdownItem=({closeNav})=>{
+    const {userData}=useUser();
     const [opened,setOpened]=useState(false);
 
     const changeOpened=()=>{
@@ -42,14 +44,16 @@ const DropdownItem=({closeNav})=>{
     ];
 
     return(
-        <Dropdown 
-            menu={{items}} 
-            trigger='click' 
-            className={!opened ? "__container" : "__open_container"}
-            onOpenChange={changeOpened}
-        >
-            <img className="__img" src={UserIcon}  alt=""/>
-        </Dropdown>
+        <div className= {!opened ?"__container" : "__container_open"}>
+            <Dropdown 
+                menu={{items}} 
+                trigger='click' 
+                className={!opened ? "__img" : "__open_img"}
+                onOpenChange={changeOpened}
+            >
+                <img src={userData ? userData.getProfilePhoto() : UserIcon}  alt=""/>
+            </Dropdown>
+        </div>
     );
 }
 
