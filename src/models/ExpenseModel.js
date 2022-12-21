@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 class ExpenseModel{
     constructor(data){
         this.id=data?.id;
@@ -8,6 +10,10 @@ class ExpenseModel{
         this.type=data?.type;
         this.note=data?.note;
         this.categoriesArray=data?.categories
+    }
+
+    getDateAndTime(){
+        return dayjs(this.date+" "+this.time).format('DD/MM/YYYY HH:mm');
     }
 }
 

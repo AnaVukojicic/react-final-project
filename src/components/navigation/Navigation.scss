@@ -38,7 +38,8 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        height: calc(100vh - 90px);
+        height: 450px;
+        min-height: calc(100vh - 90px);
         gap: 30px;
     }
 }
@@ -77,6 +78,7 @@
         transition: 1s ease-in-out;
         background-color: #FFFFFF;
         height: 0;
+        min-height: 0;
         li{
             display: none !important;
         }

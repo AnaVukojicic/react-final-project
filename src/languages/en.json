@@ -1,1 +1,55 @@
-{}
+{
+    "navigation":{
+        "history":"History of transactions",
+        "categories":"Categories",
+        "add-transaction":"Add transaction",
+        "edit-profile": "Edit profile",
+        "logout":"Logout"
+    },
+    "home":{
+        "cards":{
+            "balance":"Current account balance",
+            "incomes":"Incomes",
+            "expenses":"Expenses"
+        },
+        "title":"Current balance",
+        "buttons":{
+            "types":{
+                "income":"Income",
+                "expense":"Expnse"
+            },
+            "months":{
+                "jan":"January",
+                "feb":"February",
+                "mar":"March",
+                "apr":"April",
+                "may":"May",
+                "jun":"Jun",
+                "jul":"July",
+                "aug":"August",
+                "sep":"September",
+                "oct":"October",
+                "nov":"November",
+                "dec":"December"
+            }
+        },
+        "chart-data":"There are no transactions for the choosen period!"
+    },
+    "history":{
+        "options":{
+            "expense":"Expense",
+            "income":"Income",
+            "description":"Description",
+            "category":"Category"
+        },
+        "title":"Transactions history",
+        "table":{
+            "type":"Type",
+            "note":"Note",
+            "date":"Date and time",
+            "amount":"Amount",
+            "category":"Category",
+            "description":"Description"
+        }
+    }
+}

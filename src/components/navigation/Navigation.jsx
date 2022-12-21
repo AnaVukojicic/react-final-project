@@ -6,6 +6,7 @@ import NavButton from '../buttons/navButton/NavButton';
 import { Link } from 'react-router-dom';
 import DropdownItem from './dropdownItem/DropdownItem';
 import clsx from 'clsx';
+import { t } from 'react-switch-lang';
 
 const Navigation=()=>{
     const [showNav,setShowNav]=useState(false)
@@ -25,18 +26,18 @@ const Navigation=()=>{
             onClick: ()=>{setShowNav(false)}
         },
         {
-            label: <Link to='/history'>Istorija transakcija</Link>,
+            label: <Link to='/history'>{t('navigation.history')}</Link>,
             key: 'history',
             onClick: ()=>{setShowNav(false)}
         },
         {
-            label: <Link to='/categories'>Kategorije</Link>,
+            label: <Link to='/categories'>{t('navigation.categories')}</Link>,
             key: 'categories',
             onClick: ()=>{setShowNav(false)}
         },
         {
             label: <Link to='/add-transaction'>
-                        <NavButton label='Dodaj transakciju'/>
+                        <NavButton label={t('navigation.add-transaction')}/>
                     </Link>,
             key: 'add',
             onClick: ()=>{setShowNav(false)}

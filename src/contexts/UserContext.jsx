@@ -3,12 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { storageKeys } from "../config/config";
 import { profileService } from "../services/ProfileService";
 import { storageService } from "../services/StorageService";
+import { setTranslations,setDefaultLanguage, setLanguage } from "react-switch-lang";
+import en from '../languages/en.json';
+import me from '../languages/me.json';
+
+setTranslations({en,me})
+setDefaultLanguage(storageService.get(storageKeys.LANG));
 
 const UserContext=createContext();
 
 const UserProvider=({children})=>{
     const navigate=useNavigate();
     const [userData,setUserData]=useState(null);
+    const [refreshLanguage, setRefreshLanguage] = useState(0);
     
     useEffect(()=>{
         if(storageService.exists(storageKeys.TOKEN)){
@@ -22,13 +29,24 @@ const UserProvider=({children})=>{
         }
     },[navigate])
 
+    useEffect(()=>{
+        if(!storageService.exists(storageKeys.LANG)){
+            storageService.set(storageKeys.LANG,'me')
+        }
+    },[])
+
     const data={
         userData: userData,
-        setUserData: (data)=>setUserData(data)
+        setUserData: (data)=>setUserData(data),
+        setLanguage: (data)=>{
+            setLanguage(data);
+            setRefreshLanguage(prevState=>prevState+1)
+            storageService.set(storageKeys.LANG,data)
+        }
     }
 
     return(
-        <UserContext.Provider value={data}>
+        <UserContext.Provider key={refreshLanguage} value={data}>
             {children}
         </UserContext.Provider>
     )

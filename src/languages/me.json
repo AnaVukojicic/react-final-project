@@ -1,1 +1,55 @@
-{}
+{
+    "navigation":{
+        "history":"Istorija transakcija",
+        "categories":"Kategorije",
+        "add-transaction":"Dodaj transakciju",
+        "edit-profile": "Izmjena profila",
+        "logout":"Izloguj se"
+    },
+    "home":{
+        "cards":{
+            "balance":"Trenutno stanje na računu",
+            "incomes":"Prihodi",
+            "expenses":"Troškovi"
+        },
+        "title":"Trenutno stanje",
+        "buttons":{
+            "types":{
+                "income":"Prihod",
+                "expense":"Trošak"
+            },
+            "months":{
+                "jan":"Januar",
+                "feb":"Februar",
+                "mar":"Mart",
+                "apr":"April",
+                "may":"Maj",
+                "jun":"Jun",
+                "jul":"Jul",
+                "aug":"Avgust",
+                "sep":"Septembar",
+                "oct":"Oktobar",
+                "nov":"Novembar",
+                "dec":"December"
+            }
+        },
+        "chart-data":"Ne postoje transakcije za izabrani period!"
+    },
+    "history":{
+        "options":{
+            "expense":"Trošak",
+            "income":"Prihod",
+            "description":"Opis",
+            "category":"Kategorija"
+        },
+        "title":"Istorija transakcija",
+        "table":{
+            "type":"Tip",
+            "note":"Kratak opis",
+            "date":"Datum i vrijeme",
+            "amount":"Iznos",
+            "category":"Kategorija",
+            "description":"Opis"
+        }
+    }
+}

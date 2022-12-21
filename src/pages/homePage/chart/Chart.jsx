@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import  {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Cell,ResponsiveContainer } from "recharts";
 import { dashboardService } from '../../../services/DashboardService';
 import classes from './Chart.module.scss';
+import {t} from 'react-switch-lang';
 
 const Chart=({type,month})=>{
     const {data:chartData}=useQuery(
@@ -38,7 +39,7 @@ const Chart=({type,month})=>{
                     </BarChart>
                 </ResponsiveContainer>
                 :
-                <div className={classes['no-chart']}>There haven't been any transactions for choosen options!</div>
+                <div className={classes['no-chart']}>{t('home.chart-data')}</div>
             }
         </>
     );

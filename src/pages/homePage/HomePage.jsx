@@ -5,10 +5,31 @@ import { useQuery } from 'react-query';
 import ChartButton from '../../components/buttons/chartButton/ChartButton';
 import Chart from './chart/Chart';
 import dayjs from 'dayjs';
-import { months, typeParams, types } from '../../constants/constants';
 import { dashboardService } from '../../services/DashboardService';
+import {t} from 'react-switch-lang';
 
 const HomePage=()=>{
+    const types=[
+        t('home.buttons.types.expense'),
+        t('home.buttons.types.income')
+    ]; 
+    const typeParams=['expense','income']
+     
+    const months=[
+        t('home.buttons.months.jan'),
+        t('home.buttons.months.feb'),
+        t('home.buttons.months.mar'),
+        t('home.buttons.months.apr'),
+        t('home.buttons.months.may'),
+        t('home.buttons.months.jun'),
+        t('home.buttons.months.jul'),
+        t('home.buttons.months.aug'),
+        t('home.buttons.months.sep'),
+        t('home.buttons.months.oct'),
+        t('home.buttons.months.nov'),
+        t('home.buttons.months.dec'),
+    ];
+    
     const [buttonType,setButtonType]=useState(types[0])
     const [buttonMonth,setButtonMonth]=useState(`${months[dayjs().month()]} ${dayjs().year()}`)
     const [monthParam,setMonthParam]=useState(dayjs().month()+1);
@@ -25,17 +46,17 @@ const HomePage=()=>{
 
     const cards=[
         {
-            title: "Trenutno stanje na računu",
+            title: t('home.cards.balance'),
             amount: report.balance,
             type: "total"
         },
         {
-            title: "Prihodi",
+            title: t('home.cards.incomes'),
             amount: report.incomes,
             type: "profit"
         },
         {
-            title: "Troškovi",
+            title: t('home.cards.expenses'),
             amount: report.expenses,
             type: "expense"
         }
@@ -54,7 +75,7 @@ const HomePage=()=>{
         )
         setMonthParam(dayjs().month()>=index ? dayjs().month()-index+1 : 12-index+dayjs().month()+1)
     }
-
+    
     const data1=types.map((type,index)=>{
         return {
             label: type,
@@ -90,7 +111,7 @@ const HomePage=()=>{
             </div>
             <div className={classes['chart-container']}>
                 <div className={classes['title']}>
-                    <h3>Trenutno stanje</h3>
+                    <h3>{t('home.title')}</h3>
                     <div className={classes['buttons']}>
                         <ChartButton label={buttonType} data={data1}/>
                         <ChartButton label={buttonMonth} data={data2}/>

@@ -6,6 +6,7 @@ import NavButton from '../../../components/buttons/navButton/NavButton';
 import FieldWrapper from '../../../components/formFields/fieldWrapper/FieldWrapper';
 import { categoryService } from '../../../services/CategoryService';
 import './OptionsForm.scss';
+import {t} from 'react-switch-lang';
 
 const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
     const navigate=useNavigate();
@@ -35,18 +36,18 @@ const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
         <div className='__container_options'>
             <div className='__radio_buttons'>
                 <div>
-                    <label htmlFor='expense'>Trosak</label>
+                    <label htmlFor='expense'>{t('history.options.expense')}</label>
                     <input type='radio' name='type' id='expense' onClick={e=>typeChange(e)} value='expense'/>
                 </div>
                 <div>
-                    <label htmlFor='income'>Prihod</label>
+                    <label htmlFor='income'>{t('history.options.income')}</label>
                     <input type='radio' name='type' id='income' onClick={e=>typeChange(e)} value='income'/>
                 </div>
             </div>
             <div className='__other_inputs'>
                 <FieldWrapper className='__wrapper'>
                     <Input 
-                        placeholder='Opis' 
+                        placeholder={t('history.options.description')} 
                         onChange={e=>descriptionChange(e)}
                         style={{width:'100%'}}
                     />
@@ -62,7 +63,7 @@ const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
                 </FieldWrapper>
                 <FieldWrapper className='__wrapper'>
                     <Select 
-                        placeholder='Kategorija' 
+                        placeholder={t('history.options.category')} 
                         mode='multiple'
                         onChange={value=>categoryChange(value)}
                         style={{width:'100%'}}

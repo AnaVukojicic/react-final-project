@@ -6,6 +6,7 @@ import { expenseService } from '../../services/ExpenseService';
 import './HistoryPage.scss';
 import OptionButtons from './optionButtons/OptionButtons';
 import OptionsForm from './optionsForm/OptionsForm';
+import {t} from 'react-switch-lang';
 
 const HistoryPage=()=>{
     const [type,setType]=useState('');
@@ -24,30 +25,30 @@ const HistoryPage=()=>{
 
     const columns = [
         {
-            title: 'Tip',
+            title: t('history.table.type'),
             dataIndex: 'type',
             key: 'type',
         },
         {
-            title: 'Kratak opis',
+            title: t('history.table.note'),
             dataIndex: 'note',
             key: 'note',
         },
         {
-            title: 'Datum i vrijeme',
+            title: t('history.table.date'),
             dataIndex: 'date',
             key: 'date',
             render: (text,record,index)=>{
-                return dayjs(text).format('DD/MM/YYYY');
+                return record?.getDateAndTime();
             }
         },
         {
-            title: 'Iznos',
+            title: t('history.table.amount'),
             dataIndex: 'amount',
             key: 'amount'
         },
         {
-            title: 'Kategorija',
+            title: t('history.table.category'),
             dataIndex: 'categoriesArray',
             key: 'categoriesArray',
             render: (text,record,index)=>{
@@ -63,7 +64,7 @@ const HistoryPage=()=>{
             }
         },
         {
-            title: 'Opis',
+            title: t('history.table.description'),
             dataIndex: 'description',
             key: 'description',
         },
@@ -89,7 +90,7 @@ const HistoryPage=()=>{
             </div>
             <div className='__history_table'>
                 <div className='__table_title'>
-                    <h3>Istorija transakcija</h3>
+                    <h3>{t('history.title')}</h3>
                 </div>
                 <Table 
                     columns={columns} 

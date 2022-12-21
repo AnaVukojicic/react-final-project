@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { useUser } from "../../../contexts/UserContext";
 import UserIcon from '../../../images/UserIcon.svg';
 import './DropdownItem.scss';
+import { t } from 'react-switch-lang';
 
 const DropdownItem=({closeNav})=>{
+    const {setLanguage}=useUser();
     const {userData}=useUser();
     const [opened,setOpened]=useState(false);
 
@@ -25,19 +27,19 @@ const DropdownItem=({closeNav})=>{
     const items=[
         {
             label: <div className="_subitems">
-                        <Link to='/change-profile' onClick={setOpenedToFalse}>Izmjena profila</Link>
+                        <Link to='/change-profile' onClick={setOpenedToFalse}>{t('navigation.edit-profile')}</Link>
                     </div>,
             key: 'updateProfile'
         },
         {
-            label: <div onClick={()=>{setOpenedToFalse();logout()}} className="_subitems">Logout</div>,
+            label: <div onClick={()=>{setOpenedToFalse();logout()}} className="_subitems">{t('navigation.logout')}</div>,
             key: 'logout'
         },
         {
             label: <div>
-                        <span onClick={()=>{setOpenedToFalse()}} className="_subitems">MN</span>       
+                        <span onClick={()=>{setOpenedToFalse();setLanguage('me')}} className="_subitems">MN</span>       
                         <span>|</span> 
-                        <span onClick={()=>{setOpenedToFalse()}} className="_subitems">EN</span>
+                        <span onClick={()=>{setOpenedToFalse();setLanguage('en')}} className="_subitems">EN</span>
                     </div>,
             key: 'language'
         }
