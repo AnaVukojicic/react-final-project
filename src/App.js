@@ -4,6 +4,7 @@ import './App.css';
 import DefaultLayout from './components/layouts/defaultLayout/DefaultLayout';
 import { queryClientConfig } from './config/queryClientConfig';
 import ContextWrapper from './contexts/Wrapper';
+import AddTransactionPage from './pages/addTransactionPage/AddTransactionPage';
 import HistoryPage from './pages/historyPage/HistoryPage';
 import HomePage from './pages/homePage/HomePage';
 import LoginPage from './pages/loginPage/LoginPage';
@@ -20,6 +21,7 @@ const router=createBrowserRouter(
         <Route index element={<HomePage/>}/>
         <Route path='home' element={<HomePage/>}/>
         <Route path='history' element={<HistoryPage/>}/>
+        <Route path='add-transaction' element={<AddTransactionPage/>}/>
       </Route>
     </>
   )

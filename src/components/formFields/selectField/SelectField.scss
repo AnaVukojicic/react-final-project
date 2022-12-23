@@ -1,0 +1,13 @@
+.__select_field{
+    width: 100%;
+    border-bottom: 1px solid rgba(20, 12, 111, 0.5);
+    .ant-select-selector{
+        margin-bottom: 15px !important;
+    }
+    .ant-select-selection-placeholder,.ant-select-selection-item{
+        color: #140C6F;
+        font-family: 'Montserrat-Regular', sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}

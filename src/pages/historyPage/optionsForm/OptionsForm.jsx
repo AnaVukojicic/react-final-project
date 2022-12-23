@@ -7,6 +7,7 @@ import FieldWrapper from '../../../components/formFields/fieldWrapper/FieldWrapp
 import { categoryService } from '../../../services/CategoryService';
 import './OptionsForm.scss';
 import {t} from 'react-switch-lang';
+import dayjs from 'dayjs';
 
 const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
     const navigate=useNavigate();
@@ -55,10 +56,10 @@ const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
                 <FieldWrapper className='__wrapper'>
                     <DatePicker 
                         placeholder='_ _ / _ _ / _ _ _ _' 
-                        format='YYYY-MM-DD'
+                        format='DD/MM/YYYY'
                         style={{width:'100%'}}
                         picker='date'
-                        onChange={(d,ds)=>dateChange(ds)}
+                        onChange={(d,ds)=>dateChange(ds ? dayjs(d).format('YYYY-MM-DD') : '')}
                     />
                 </FieldWrapper>
                 <FieldWrapper className='__wrapper'>

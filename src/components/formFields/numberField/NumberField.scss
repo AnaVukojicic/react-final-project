@@ -1,0 +1,28 @@
+.__number_field{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(20, 12, 111, 0.5);
+    border-radius: 0;
+    &:hover{
+        border-color: rgba(20, 12, 111, 0.5) !important;
+    }
+    .ant-input-number-prefix{
+        font-family: 'Montserrat-Bold',sans-serif;
+        color: #140C6F;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 15px;
+    }
+    .ant-input-number{
+        font-family: 'Montserrat-Regular',sans-serif;
+        color: #140C6F;
+        line-height: 20px;
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-left: 40%;
+    }
+}
+
+.ant-input-number-affix-wrapper{
+    box-shadow: none;
+}

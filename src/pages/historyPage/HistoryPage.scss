@@ -71,3 +71,20 @@
         width: calc(100vw - 60px);
     }
 }
+
+.__note{
+    position: relative;
+    .__popup{
+        display: none;
+    }
+    &:hover{
+        .__popup{
+            display: block;
+            position: absolute;
+            background-color: #2F2F2F;
+            border-radius: 8px;
+            padding: 10px;
+            color: #FFFFFF;
+        }
+    }
+}

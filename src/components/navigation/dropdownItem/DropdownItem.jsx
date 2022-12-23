@@ -1,12 +1,15 @@
 import { Dropdown } from "antd";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../../../contexts/UserContext";
 import UserIcon from '../../../images/UserIcon.svg';
 import './DropdownItem.scss';
 import { t } from 'react-switch-lang';
+import { authService } from "../../../services/AuthService";
+import { storageService } from "../../../services/StorageService";
 
 const DropdownItem=({closeNav})=>{
+    const navigate=useNavigate();
     const {setLanguage}=useUser();
     const {userData}=useUser();
     const [opened,setOpened]=useState(false);
@@ -21,13 +24,18 @@ const DropdownItem=({closeNav})=>{
     }
 
     const logout=()=>{
-
+        authService.logout()
+            .then(res=>{
+                storageService.clear()
+                navigate('/login');
+            })
+            .catch(err=>Promise.reject(err))
     }
 
     const items=[
         {
             label: <div className="_subitems">
-                        <Link to='/change-profile' onClick={setOpenedToFalse}>{t('navigation.edit-profile')}</Link>
+                        <Link to='/edit-profile' onClick={setOpenedToFalse}>{t('navigation.edit-profile')}</Link>
                     </div>,
             key: 'updateProfile'
         },

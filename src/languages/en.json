@@ -1,4 +1,10 @@
 {
+    "common":{
+        "cancel":"Cancel",
+        "save":"Save",
+        "income":"Income",
+        "expense":"Expense"
+    },
     "navigation":{
         "history":"History of transactions",
         "categories":"Categories",
@@ -16,7 +22,7 @@
         "buttons":{
             "types":{
                 "income":"Income",
-                "expense":"Expnse"
+                "expense":"Expense"
             },
             "months":{
                 "jan":"January",
@@ -45,11 +51,33 @@
         "title":"Transactions history",
         "table":{
             "type":"Type",
-            "note":"Note",
+            "description":"Description",
             "date":"Date and time",
             "amount":"Amount",
             "category":"Category",
-            "description":"Description"
+            "note":"Note"
+        }
+    },
+    "add-transaction":{
+        "title":"Add transaction",
+        "form":{
+            "type":"Type",
+            "income":"Incomes",
+            "income-value":"income",
+            "expense":"Expenses",
+            "expense-value":"expense",
+            "date":"Date",
+            "time":"Time",
+            "amount":"Amount",
+            "description":"Description",
+            "note":"Note",
+            "category":"Category"
+        },
+        "errors":{
+            "required":"Field is required!",
+            "negative":"Field cannot have negative value!",
+            "min":"Field must have at least {number} characters!",
+            "max":"Field cannot have more than {number} characters!"
         }
     }
 }

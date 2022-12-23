@@ -53,6 +53,9 @@
         }
         .ant-picker{
             padding: 0;
+            .ant-picker-suffix{
+                padding-right: 28px;
+            }
         }
         .ant-select-selector{
             height: 61px;

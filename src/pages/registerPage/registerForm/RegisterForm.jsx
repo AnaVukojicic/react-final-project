@@ -58,6 +58,7 @@ const RegisterForm=()=>{
                         label="Log in"
                         backgroundColor="#84C57A"
                         color="#FFFFFF"    
+                        type="submit"
                     />
                 </div>
             </form>

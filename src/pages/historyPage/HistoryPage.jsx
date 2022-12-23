@@ -1,5 +1,4 @@
 import { Table } from 'antd';
-import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { expenseService } from '../../services/ExpenseService';
@@ -28,11 +27,14 @@ const HistoryPage=()=>{
             title: t('history.table.type'),
             dataIndex: 'type',
             key: 'type',
+            render: (text,record,index)=>{
+                return record?.getTypeName()
+            }
         },
         {
-            title: t('history.table.note'),
-            dataIndex: 'note',
-            key: 'note',
+            title: t('history.table.description'),
+            dataIndex: 'description',
+            key: 'description',
         },
         {
             title: t('history.table.date'),
@@ -64,9 +66,16 @@ const HistoryPage=()=>{
             }
         },
         {
-            title: t('history.table.description'),
-            dataIndex: 'description',
-            key: 'description',
+            title: t('history.table.note'),
+            dataIndex: 'note',
+            key: 'note',
+            render:(text,record)=>{
+                return <p className='__note'>
+                            {record.getTrimmedNote()}
+                            <span className='__popup'>{text}</span>
+                        </p>
+
+            }
         },
         {
             title: '',
@@ -83,7 +92,7 @@ const HistoryPage=()=>{
             <div className='__options_container'>
                 <OptionsForm 
                     typeChange={e=>setType(e.target.value)}
-                    dateChange={(e)=>setDate(e)}
+                    dateChange={value=>setDate(value)}
                     descriptionChange={e=>setDescription(e.target.value)}
                     categoryChange={value=>setCategory(value)}
                 />
@@ -96,7 +105,7 @@ const HistoryPage=()=>{
                     columns={columns} 
                     dataSource={expenses} 
                     rowKey={record => record.id} 
-                    pagination={false} 
+                    pagination={true}
                 />
             </div>
         </div>

@@ -1,0 +1,38 @@
+.__date_field{
+    width: 100%;
+    border-bottom: 1px solid rgba(20, 12, 111, 0.5) !important;
+    box-shadow: none;
+    border-radius: 0;
+    .ant-picker-input{
+        padding-bottom: 0;
+        margin-bottom: 15px;
+        flex-direction: row-reverse;
+        input{
+            font-family: 'Montserrat-Regular',sans-serif;
+            font-size: 18px;
+            line-height: 22px;
+            color: #140C6F;
+            margin-left: 15px;
+            &::placeholder { 
+                color: #140C6F !important;
+            }
+              
+            &:-ms-input-placeholder {
+                color: #140C6F !important;
+            }
+              
+            &::-ms-input-placeholder {
+                color: #140C6F !important;
+            }
+        }
+    }
+}
+
+:where(.css-dev-only-do-not-override-26rdvq).ant-picker:where(.css-dev-only-do-not-override-26rdvq).ant-picker-borderless{
+    border-color: transparent transparent #140C6F transparent !important;
+}
+
+.ant-picker-suffix{
+    color: #140C6F !important;
+    font-size: 24px;
+}

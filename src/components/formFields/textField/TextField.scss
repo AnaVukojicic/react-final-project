@@ -1,0 +1,30 @@
+.__text_field{
+    border: 1px solid #140C6F;
+    color: #140C6F !important;
+    font-size: 16px;
+    line-height: 20px;
+    &:hover{
+        border-color: #140C6F;
+    }
+    &:focus{
+        box-shadow: none;
+        border-color: #140C6F;
+    }
+    &::placeholder { 
+        color: #140C6F !important;
+        font-size: 13px;
+        line-height: 16px;
+      }
+      
+    &:-ms-input-placeholder {
+        color: #140C6F !important;
+        font-size: 13px;
+        line-height: 16px;
+    }
+      
+    &::-ms-input-placeholder {
+        color: #140C6F !important;
+        font-size: 13px;
+        line-height: 16px;
+    }
+}

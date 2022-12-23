@@ -1,4 +1,10 @@
 {
+    "common":{
+        "cancel":"Odustani",
+        "save":"Sačuvaj",
+        "income":"Prihod",
+        "expense":"Trošak"
+    },
     "navigation":{
         "history":"Istorija transakcija",
         "categories":"Kategorije",
@@ -30,7 +36,7 @@
                 "sep":"Septembar",
                 "oct":"Oktobar",
                 "nov":"Novembar",
-                "dec":"December"
+                "dec":"Decembar"
             }
         },
         "chart-data":"Ne postoje transakcije za izabrani period!"
@@ -45,11 +51,31 @@
         "title":"Istorija transakcija",
         "table":{
             "type":"Tip",
-            "note":"Kratak opis",
+            "description":"Kratak opis",
             "date":"Datum i vrijeme",
             "amount":"Iznos",
             "category":"Kategorija",
-            "description":"Opis"
+            "note":"Opis"
         }
-    }
+    },
+    "add-transaction":{
+        "title":"Dodaj transakciju",
+        "form":{
+            "type":"Tip",
+            "income":"Prihodi",
+            "expense":"Troškovi",
+            "date":"Datum",
+            "time":"Vrijeme",
+            "amount":"Iznos",
+            "description":"Kratak opis",
+            "note":"Bilješka",
+            "category":"Kategorija"
+        },
+        "errors":{
+            "required":"Polje je obavezno!",
+            "negative":"Polje ne može imati negativnu vrijednost",
+            "min":"Polje mora imati barem {number} karaktera!",
+            "max":"Polje ne može imati više od {number} karaktera!"
+        }
+    }     
 }

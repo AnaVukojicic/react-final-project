@@ -11,14 +11,23 @@ import { storageService } from "../../../services/StorageService";
 import { storageKeys } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
+import { profileService } from "../../../services/ProfileService";
+import { useUser } from "../../../contexts/UserContext";
 
 const LoginForm=()=>{
     const navigate=useNavigate();
+    const {setUserData}=useUser();
 
     const login=(email,password)=>{
         authService.login(email,password)
             .then(res=>{
                 storageService.set(storageKeys.TOKEN,res.getAccessToken())
+            })
+            .then(res=>{
+                return profileService.getUserInfo()
+            })
+            .then(res=>{
+                setUserData(res)
                 setTimeout(()=>{
                     navigate('/home')
                 },300)
@@ -64,6 +73,7 @@ const LoginForm=()=>{
                         label="Log in"
                         backgroundColor="#84C57A"
                         color="#FFFFFF"    
+                        type="submit"
                     />
                 </div>
             </form>

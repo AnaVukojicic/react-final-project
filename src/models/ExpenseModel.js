@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { t } from "react-switch-lang";
 
 class ExpenseModel{
     constructor(data){
@@ -14,6 +15,18 @@ class ExpenseModel{
 
     getDateAndTime(){
         return dayjs(this.date+" "+this.time).format('DD/MM/YYYY HH:mm');
+    }
+
+    getTrimmedNote(){
+        return this.note && (this.note.length>20 ? `${this.note.substring(0,20)}...` : this.note);
+    }
+
+    getTypeName(){
+        if(this.type==='expense'){
+            return t('common.expense')
+        }else if(this.type==='income'){
+            t('common.income')
+        }
     }
 }
 

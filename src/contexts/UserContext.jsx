@@ -8,7 +8,7 @@ import en from '../languages/en.json';
 import me from '../languages/me.json';
 
 setTranslations({en,me})
-setDefaultLanguage(storageService.get(storageKeys.LANG));
+setDefaultLanguage(storageService.exists(storageKeys.LANG) ? storageService.get(storageKeys.LANG) : 'me');
 
 const UserContext=createContext();
 
@@ -16,7 +16,7 @@ const UserProvider=({children})=>{
     const navigate=useNavigate();
     const [userData,setUserData]=useState(null);
     const [refreshLanguage, setRefreshLanguage] = useState(0);
-    
+
     useEffect(()=>{
         if(storageService.exists(storageKeys.TOKEN)){
             profileService.getUserInfo()
@@ -27,9 +27,6 @@ const UserProvider=({children})=>{
         }else{
             navigate('/login')
         }
-    },[navigate])
-
-    useEffect(()=>{
         if(!storageService.exists(storageKeys.LANG)){
             storageService.set(storageKeys.LANG,'me')
         }
