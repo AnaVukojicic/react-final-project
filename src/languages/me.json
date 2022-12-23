@@ -2,6 +2,7 @@
     "common":{
         "cancel":"Odustani",
         "save":"Sačuvaj",
+        "delete":"Obriši",
         "income":"Prihod",
         "expense":"Trošak"
     },

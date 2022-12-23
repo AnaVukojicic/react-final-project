@@ -7,6 +7,8 @@ import OptionButtons from './optionButtons/OptionButtons';
 import OptionsForm from './optionsForm/OptionsForm';
 import {t} from 'react-switch-lang';
 import { useNavigate } from 'react-router-dom';
+import { useModal } from '../../contexts/ModalContext';
+import DeleteForm from '../../components/deleteForm/DeleteForm';
 
 const HistoryPage=()=>{
     const navigate=useNavigate();
@@ -14,6 +16,7 @@ const HistoryPage=()=>{
     const [description,setDescription]=useState('');
     const [category,setCategory]=useState(null);
     const [date,setDate]=useState('');
+    const {open,close}=useModal();
 
     const {data:expenses}=useQuery(
         ['expenses',type,description,category,date],
@@ -28,8 +31,17 @@ const HistoryPage=()=>{
         navigate(`/edit-transaction/${id}`);
     }
 
-    const handleDelete=(id)=>{
-        console.log("DELETE");
+    const handleDelete=(id,type)=>{
+        open({
+            title:`Delete ${type}`,
+            content: <DeleteForm 
+                            id={id}
+                            label={`Are you sure you want to delete ${type}?`}
+                            cancel={close}
+                            type={type}
+                        />
+
+        })
     }
 
     const columns = [
@@ -94,7 +106,7 @@ const HistoryPage=()=>{
             render: (text,record,index)=>{
                 return <OptionButtons 
                             handleEdit={()=>handleEdit(record?.id)}
-                            handleDelete={()=>handleDelete(record?.id)}
+                            handleDelete={()=>handleDelete(record?.id,'transaction')}
                         />
             }
         }

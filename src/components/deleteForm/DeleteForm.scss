@@ -1,0 +1,23 @@
+.__delete_container{
+    .__delete_content{
+        font-family: 'Inter-Regular',sans-serif;
+        font-size: 17px;
+        padding: 15px 0;
+    }
+    .__modal_buttons{
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        width: 50%;
+        margin-left: auto;
+        padding-top: 20px;
+        button{
+            font-size: 17px;
+        }
+    }
+}
+
+.ant-modal-title{
+    font-family: "Inter-Bold";
+    font-size: 19px !important;
+}

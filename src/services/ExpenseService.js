@@ -71,6 +71,12 @@ class Expenseservice{
             .then(res=>new ExpenseModel(res?.data?.data))
             .catch(err=>Promise.reject(err))
     }
+
+    deletExpense(id){
+        return requestInstance.delete(`${this.api.expenses}/${id}`)
+            .then(res=>new ExpenseModel(res?.data?.data))
+            .catch(err=>Promise.reject(err))
+    }
 }
 
 export const expenseService=new Expenseservice()

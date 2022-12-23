@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FormButton from "../../components/buttons/formButton/FormButton";
 import classes from './AddTransactionPage.module.scss';
 import {t} from 'react-switch-lang';
@@ -190,6 +190,7 @@ const AddTransactionPage=({type})=>{
                         label={t('common.cancel')}
                         backgroundColor="#F2F2F2" 
                         color="#140C6F"
+                        onClick={()=>navigate(-1)}
                     />
                     <FormButton 
                         label={t('common.save')}

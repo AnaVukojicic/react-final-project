@@ -1,10 +1,13 @@
 import React from 'react';
 import UserProvider from './UserContext';
+import ModalProvider from './ModalContext';
 
 const ContextWrapper=({children})=>{
     return(
         <UserProvider>
-            {children}
+            <ModalProvider>
+                {children}
+            </ModalProvider>
         </UserProvider>
     )
 }
