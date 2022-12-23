@@ -36,6 +36,12 @@ class Expenseservice{
             .catch(err=>Promise.reject(err))
     }
 
+    getExpenseInfo(id){
+        return requestInstance.get(`${this.api.expenses}/${id}`)
+            .then(res=>new ExpenseModel(res?.data?.data))
+            .catch(err=>Promise.reject(err))
+    }
+
     addExpense(data){
         const formData={
             "type" : data?.type,
@@ -46,8 +52,22 @@ class Expenseservice{
             "note" : data?.note ? data?.note : "",
             "categories" : data?.category
         }
-        console.log(formData)
         return requestInstance.post(this.api.expenses,formData)
+            .then(res=>new ExpenseModel(res?.data?.data))
+            .catch(err=>Promise.reject(err))
+    }
+
+    editExpense(data){
+        const formData={
+            "type" : data?.type,
+            "entry_date" : dayjs(data?.date).format('YYYY-MM-DD'),
+            "entry_time" : dayjs(data?.time).format('HH:mm:ss'),
+            "amount" : data?.amount,
+            "description" : data?.description,
+            "note" : data?.note ? data?.note : "",
+            "categories" : data?.category
+        }
+        return requestInstance.put(`${this.api.expenses}/${data?.id}`,formData)
             .then(res=>new ExpenseModel(res?.data?.data))
             .catch(err=>Promise.reject(err))
     }

@@ -1,8 +1,17 @@
 .container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 26px;
-    padding: 118px 20vw
+    padding: 118px 0;
+    @media screen and (max-width:600px){
+       padding-left: 50px;
+       padding-right: 50px;
+    }
+    @media screen and (max-width:450px){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 
 .content{
@@ -13,6 +22,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
+    width: 895px;
     .title{
         h3{
             color: #140C6F;
@@ -26,6 +36,12 @@
         justify-content: space-between;
         align-items: center;
         gap: 80px;
+        label{
+            color: #140C6F;
+            font-size: 16px;
+            line-height: 20px;
+            font-family: 'Montserrat-Regular',sans-serif;
+        }
         .form-div{
             width: 100%;
             display: flex;
@@ -34,6 +50,10 @@
             .date-time{
                 display: flex;
                 gap: 35px;
+                @media screen and (max-width:450px){
+                    flex-direction: column;
+                    gap: 30px;
+                }
             }
         }
         .category-div{
@@ -56,11 +76,36 @@
                 overflow: auto;
                 padding-top: 15px;
             }
+            @media screen and (max-width:1000px){
+                margin: 0;
+            }
         }
+        @media screen and (max-width:1000px){
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+    @media screen and (max-width:1000px){
+        width: 550px;
+    }
+    @media screen and (max-width:600px){
+        width: 100%;
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
 .buttons{
     display: flex;
+    width: 895px;
     gap: 55px;
+    @media screen and (max-width:1000px){
+        width: 550px;
+    }
+    @media screen and (max-width:600px){
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+    }
 }

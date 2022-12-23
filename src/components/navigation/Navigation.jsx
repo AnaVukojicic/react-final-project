@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import './Navigation.scss';
 import Logo from '../../images/Logo.svg'
 import NavButton from '../buttons/navButton/NavButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DropdownItem from './dropdownItem/DropdownItem';
 import clsx from 'clsx';
 import { t } from 'react-switch-lang';
 
 const Navigation=()=>{
+    const navigate=useNavigate();
     const [showNav,setShowNav]=useState(false)
 
     const openMenu=()=>{
@@ -36,9 +37,7 @@ const Navigation=()=>{
             onClick: ()=>{setShowNav(false)}
         },
         {
-            label: <Link to='/add-transaction'>
-                        <NavButton label={t('navigation.add-transaction')}/>
-                    </Link>,
+            label: <NavButton label={t('navigation.add-transaction')} onClick={()=>navigate('/add-transaction')}/>,
             key: 'add',
             onClick: ()=>{setShowNav(false)}
         },

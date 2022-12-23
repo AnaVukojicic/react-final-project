@@ -6,8 +6,10 @@ import './HistoryPage.scss';
 import OptionButtons from './optionButtons/OptionButtons';
 import OptionsForm from './optionsForm/OptionsForm';
 import {t} from 'react-switch-lang';
+import { useNavigate } from 'react-router-dom';
 
 const HistoryPage=()=>{
+    const navigate=useNavigate();
     const [type,setType]=useState('');
     const [description,setDescription]=useState('');
     const [category,setCategory]=useState(null);
@@ -21,6 +23,14 @@ const HistoryPage=()=>{
             initialData:[]
         }
     )
+
+    const handleEdit=(id)=>{
+        navigate(`/edit-transaction/${id}`);
+    }
+
+    const handleDelete=(id)=>{
+        console.log("DELETE");
+    }
 
     const columns = [
         {
@@ -81,8 +91,11 @@ const HistoryPage=()=>{
             title: '',
             dataIndex: 'options',
             key: 'options',
-            render: ()=>{
-                return <OptionButtons/>
+            render: (text,record,index)=>{
+                return <OptionButtons 
+                            handleEdit={()=>handleEdit(record?.id)}
+                            handleDelete={()=>handleDelete(record?.id)}
+                        />
             }
         }
       ];

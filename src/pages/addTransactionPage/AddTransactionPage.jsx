@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FormButton from "../../components/buttons/formButton/FormButton";
 import classes from './AddTransactionPage.module.scss';
 import {t} from 'react-switch-lang';
@@ -15,18 +15,19 @@ import CheckboxField from "../../components/formFields/checkboxField/CheckboxFie
 import { useQuery } from "react-query";
 import { categoryService } from "../../services/CategoryService";
 import { expenseService } from "../../services/ExpenseService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddTransactionPage=()=>{
+const AddTransactionPage=({type})=>{
+    const {id}=useParams();
     const navigate=useNavigate();
     const optionsType=[
         {
             label: t('add-transaction.form.income'),
-            value: t('add-transaction.form.income-value')
+            value: t('add-transaction.form.income')
         },
         {
             label: t('add-transaction.form.expense'),
-            value: t('add-transaction.form.expense-value')
+            value: t('add-transaction.form.expense')
         }
     ]
 
@@ -57,6 +58,30 @@ const AddTransactionPage=()=>{
             .catch(err=>console.log(err))
     }
 
+    const getExpenseInfo=(id)=>{
+        expenseService.getExpenseInfo(id)
+            .then(res=>{
+                reset({
+                    id:res?.id,
+                    type:res?.type,
+                    date:dayjs(res?.date),
+                    time:dayjs(res?.time,'HH:mm'),
+                    amount:res?.amount,
+                    description:res?.description,
+                    note:res?.note,
+                    category:res?.categoriesArray.map(category=>category?.id)
+                })
+                return res
+            })
+            .catch(err=>console.log(err))
+    }
+
+    const editExpense=(data)=>{
+        return expenseService.editExpense(data)
+            .then(res=>navigate('/history'))
+            .catch(err=>console.log(err))
+    }
+
     const shema=yup.object().shape({
         type: yup.string().trim().required(t('add-transaction.errors.required')),
         date: yup.date().required(t('add-transaction.errors.required')),
@@ -70,7 +95,7 @@ const AddTransactionPage=()=>{
         category:yup.array().of(yup.number().integer()).required(t('add-transaction.errors.required'))
     })
 
-    const {handleSubmit,control,formState:{errors}}=useForm({
+    const {handleSubmit,control,reset,formState:{errors}}=useForm({
         resolver:yupResolver(shema),
         defaultValues: {
             "date": dayjs(new Date()),
@@ -78,9 +103,18 @@ const AddTransactionPage=()=>{
         }
     });
 
+    useQuery(
+        ['expense',id],
+        ()=>getExpenseInfo(id),
+        {enabled: type==='edit' ? true : false}
+    )
+
     const submitForm=(data)=>{
-        console.log(data)
-        addExpense(data)
+        if(type==='add'){
+            addExpense(data)  
+        }else if(type==='edit'){
+            editExpense(data)
+        }
     }
 
     return(

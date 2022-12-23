@@ -63,9 +63,7 @@
         "form":{
             "type":"Type",
             "income":"Incomes",
-            "income-value":"income",
             "expense":"Expenses",
-            "expense-value":"expense",
             "date":"Date",
             "time":"Time",
             "amount":"Amount",
