@@ -4,7 +4,13 @@
         "save":"Sačuvaj",
         "delete":"Obriši",
         "income":"Prihod",
-        "expense":"Trošak"
+        "expense":"Trošak",
+        "modal-title":"Obriši {type}",
+        "modal-content":"Da li ste sigurni da želite da obrišete {type}?",
+        "delete-type":{
+            "category":"kategoriju",
+            "transaction":"transakciju"
+        }
     },
     "navigation":{
         "history":"Istorija transakcija",
@@ -75,6 +81,18 @@
         "errors":{
             "required":"Polje je obavezno!",
             "negative":"Polje ne može imati negativnu vrijednost",
+            "min":"Polje mora imati barem {number} karaktera!",
+            "max":"Polje ne može imati više od {number} karaktera!"
+        }
+    },
+    "categories":{
+        "title":"Dodaj kategoriju",
+        "name":"Naziv kategorije",
+        "color":"Boja",
+        "new-category":"Nova kategorija",
+        "add":"Dodaj",
+        "errors":{
+            "required":"Polje je obavezno!",
             "min":"Polje mora imati barem {number} karaktera!",
             "max":"Polje ne može imati više od {number} karaktera!"
         }

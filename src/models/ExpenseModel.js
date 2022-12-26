@@ -25,7 +25,7 @@ class ExpenseModel{
         if(this.type==='expense'){
             return t('common.expense')
         }else if(this.type==='income'){
-            t('common.income')
+            return t('common.income')
         }
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import  {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Cell,ResponsiveContainer } from "recharts";
 import { dashboardService } from '../../../services/DashboardService';
@@ -6,6 +6,7 @@ import classes from './Chart.module.scss';
 import {t} from 'react-switch-lang';
 
 const Chart=({type,month})=>{
+    const [height,setHeight]=useState(100)
     const {data:chartData}=useQuery(
         ['chart-report',type,month],
         ()=>dashboardService.getChartData(type,month),
@@ -14,6 +15,10 @@ const Chart=({type,month})=>{
             initialData:[]
         }
     )
+
+    useEffect(()=>{
+        setHeight(Math.max.apply(Math,chartData.map(item=>parseInt(item.total))))
+    },[chartData])
 
     return(
         <>
@@ -26,7 +31,7 @@ const Chart=({type,month})=>{
                     >
                         <CartesianGrid strokeDasharray="3 3"/>
                         <XAxis dataKey="name" angle={-90} textAnchor="end"/>
-                        <YAxis/>   
+                        <YAxis domain={[0,height]}/>   
                         <Tooltip/>
                         <Bar dataKey={"total"} radius={[10, 10, 0, 0]} barSize={70}>
                             {chartData?.map((item,index)=>{

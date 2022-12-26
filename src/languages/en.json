@@ -4,7 +4,13 @@
         "save":"Save",
         "delete":"Delete",
         "income":"Income",
-        "expense":"Expense"
+        "expense":"Expense",
+        "modal-title":"Delete {type}",
+        "modal-content":"Are you sure you want to delete {type}?",
+        "delete-type":{
+            "category":"kategoriju",
+            "transaction":"transakciju"
+        }
     },
     "navigation":{
         "history":"History of transactions",
@@ -75,6 +81,18 @@
         "errors":{
             "required":"Field is required!",
             "negative":"Field cannot have negative value!",
+            "min":"Field must have at least {number} characters!",
+            "max":"Field cannot have more than {number} characters!"
+        }
+    },
+    "categories":{
+        "title":"Add category",
+        "name":"Category name",
+        "color":"Color",
+        "new-category":"New category",
+        "add":"Add",
+        "errors":{
+            "required":"Field is required!",
             "min":"Field must have at least {number} characters!",
             "max":"Field cannot have more than {number} characters!"
         }

@@ -23,11 +23,11 @@ const AddTransactionPage=({type})=>{
     const optionsType=[
         {
             label: t('add-transaction.form.income'),
-            value: t('add-transaction.form.income')
+            value: 'income'
         },
         {
             label: t('add-transaction.form.expense'),
-            value: t('add-transaction.form.expense')
+            value: 'expense'
         }
     ]
 

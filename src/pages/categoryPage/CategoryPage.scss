@@ -1,0 +1,159 @@
+.__category_container{
+    padding: 165px 0;
+    display: flex;
+    justify-content: center;
+    gap: 57px;
+    .__large_category_table{
+        width: 80vw;
+    }
+    .__category_table{
+        width: 650px;
+        @media screen and (max-width:1170px){
+            width: 80vw;
+        }
+    }
+    .__large_category_table,.__category_table{
+        transition: 1s ease-in-out;
+        border: 1px solid #E1E1E1;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        .ant-table-wrapper{
+            padding: 37px 68px;
+            overflow: auto;
+            @media screen and (max-width:350px){
+                padding: 37px 30px;
+            }
+        }
+        .ant-table-thead{
+            .ant-table-cell{
+                background-color: #FFFFFF;
+                border-bottom: none;
+                font-family: 'Inter-Bold', sans-serif;
+                font-size: 18px;
+                line-height: 22px;
+                color: #2F2F2F;
+                padding-left: 0;
+                &::before{
+                    content: none !important;
+                }
+            }
+        }
+        .ant-table-tbody{
+            .ant-table-cell{
+                padding-left: 0;
+                border: none;
+                font-family: 'Inter-Medium', sans-serif;
+                font-size: 14px;
+                line-height: 17px;
+            }
+            tr{
+                .ant-table-cell:last-child{
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+        .title{
+            padding: 24px 31px 12px 31px;
+            border-bottom: 1px solid #F4F5F7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h3{
+                color: #140C6F;
+                font-family: 'Inter-Bold',sans-serif;
+                font-size: 19px;
+                line-height: 22px;
+                padding: 0 31px;
+                @media screen and (max-width:350px){
+                    padding: 0;
+                }
+            }
+        }
+        .__color_circle{
+            width: 26px;
+            height: 26px;
+            border-radius: 100%;
+        }
+        @media screen and (max-width:500px){
+            width: 100%;
+            border: none;
+        }
+    }
+    .__add_category{
+        width: 435px;
+        height: 430px;
+        border: 1px solid #E1E1E1;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        .__title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 45px 35px 7px 45px;
+            h3,.__close{
+                font-family: 'Inter-Bold',sans-serif;
+                font-size: 18px;
+                line-height: 22px;
+                color: #2F2F2F;
+            }
+            .__close{
+                cursor: pointer;
+            }
+        }
+        .__input_container{
+            padding: 0 47px;
+            input{
+                border-bottom: 1px solid rgba(20, 12, 111, 0.5);
+                border-radius: 0;
+                padding-left: 0;
+                &::placeholder {
+                    color: rgba(20, 12, 111, 0.5);
+                }   
+                &:-ms-input-placeholder {
+                    color: rgba(20, 12, 111, 0.5);
+                }   
+                &::-ms-input-placeholder {
+                    color: rgba(20, 12, 111, 0.5);
+                }
+            }
+        }
+        .__color{
+            h3{
+                padding: 35px 45px 27px 45px;
+                color: #140C6F;
+                font-family: 'Montserrat-Bold',sans-serif;
+                font-size: 18px;
+                line-height: 22px;
+            }
+            &>div{
+                display: flex;
+                gap: 29px;
+                flex-wrap: wrap;
+                padding: 0 47px 40px 47px;
+                @media screen and (max-width:500px){
+                    gap: 15px;
+                    padding-bottom: 30px;
+                }
+            }
+            .__button{
+                padding: 0 50px 25px 50px;
+                button{
+                    border:1px solid #140C6F;
+                }
+            }
+        }
+        @media screen and (max-width:600px){
+            width: 80vw;
+        }
+        @media screen and (max-width:500px){
+            width: 100%;
+            border: none;
+        }
+    }
+    @media screen and (max-width:1170px){
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 75px;
+    }
+}

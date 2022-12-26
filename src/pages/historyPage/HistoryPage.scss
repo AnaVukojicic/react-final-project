@@ -40,13 +40,14 @@
         }
     }
     .__table_title{
-        padding: 24px 0 12px 53px;
-        border-bottom: 1px solid #F4F5F7;
+        padding: 0 43px;
         h3{
             font-family: 'Inter-SemiBold',sans-serif;
             font-size: 17px;
             line-height: 22px;
             color: #2F2F2F;
+            padding: 24px 20px 12px 20px;
+            border-bottom: 1px solid #F4F5F7;
         }
     }
     @media screen and (max-width:1100px){

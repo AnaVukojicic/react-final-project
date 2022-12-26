@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { t } from 'react-switch-lang';
+import { categoryService } from '../../services/CategoryService';
 import { expenseService } from '../../services/ExpenseService';
 import FormButton from '../buttons/formButton/FormButton';
 import './DeleteForm.scss';
@@ -9,9 +10,18 @@ const DeleteForm=({id,label,cancel,type})=>{
     const queryClient = useQueryClient();
 
     const deleteTransaction=useMutation(
-        ()=>expenseService.deletExpense(id)
+        ()=>expenseService.deleteExpense(id)
             .then(res=>{
                 queryClient.invalidateQueries('expenses')
+                cancel()
+            })
+            .catch(err=>console.log(err))
+    )
+
+    const deleteCategory=useMutation(
+        ()=>categoryService.deleteCategory(id)
+            .then(res=>{
+                queryClient.invalidateQueries('all-categories')
                 cancel()
             })
             .catch(err=>console.log(err))
@@ -21,7 +31,7 @@ const DeleteForm=({id,label,cancel,type})=>{
         if(type==='transaction'){
             deleteTransaction.mutate(id)
         }else if(type==='category'){
-            console.log("DELETE CATEGORY",id)
+            deleteCategory.mutate(id)
         }
     }
     return(

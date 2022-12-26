@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
 
-const InputField=({placeholder,type='text',label,error,name,control})=>{
+const InputField=({placeholder,type='text',label,error,name,control,bordered=true})=>{
     return (
         <FieldWrapper label={label} error={error}>
             <Controller
@@ -13,6 +13,7 @@ const InputField=({placeholder,type='text',label,error,name,control})=>{
                 render={({field})=>(
                     <Input
                         className='__input_field'   
+                        bordered={bordered}
                         placeholder={placeholder}
                         type={type}
                         status={error ? "error" : ""}

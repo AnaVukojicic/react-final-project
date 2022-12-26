@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { expenseService } from '../../services/ExpenseService';
 import './HistoryPage.scss';
-import OptionButtons from './optionButtons/OptionButtons';
+import OptionButtons from '../../components/optionButtons/OptionButtons';
 import OptionsForm from './optionsForm/OptionsForm';
 import {t} from 'react-switch-lang';
 import { useNavigate } from 'react-router-dom';
@@ -33,10 +33,10 @@ const HistoryPage=()=>{
 
     const handleDelete=(id,type)=>{
         open({
-            title:`Delete ${type}`,
+            title:t('common.modal-title',{type:t(`common.delete-type.${type}`)}),
             content: <DeleteForm 
                             id={id}
-                            label={`Are you sure you want to delete ${type}?`}
+                            label={t('common.modal-content',{type:t(`common.delete-type.${type}`)})}
                             cancel={close}
                             type={type}
                         />
