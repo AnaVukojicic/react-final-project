@@ -10,6 +10,7 @@ import EditPage from './pages/editPage/EditPage';
 import HistoryPage from './pages/historyPage/HistoryPage';
 import HomePage from './pages/homePage/HomePage';
 import LoginPage from './pages/loginPage/LoginPage';
+import ProfilePage from './pages/profilePage/ProfilePage';
 import RegisterPage from './pages/registerPage/RegisterPage';
 
 const queryClient=new QueryClient(queryClientConfig);
@@ -26,6 +27,7 @@ const router=createBrowserRouter(
         <Route path='add-transaction' element={<AddTransactionPage type='add'/>}/>
         <Route path='edit-transaction/:id' element={<EditPage/>}/>
         <Route path='categories' element={<CategoryPage/>}/>
+        <Route path='edit-profile' element={<ProfilePage/>}/>
       </Route>
     </>
   )

@@ -1,0 +1,23 @@
+.__image_form_container{
+    .__content{
+        font-family: 'Montserrat-SemiBold',sans-serif;
+        font-size: 17px;
+        padding: 15px 0;
+    }
+    .__buttons{
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        width: 50%;
+        margin-left: auto;
+        padding-top: 20px;
+        button{
+            font-size: 17px;
+        }
+    }
+}
+
+.ant-modal-title{
+    font-family: "Montserrat-Bold",sans-serif;
+    font-size: 19px !important;
+}

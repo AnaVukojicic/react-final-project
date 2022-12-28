@@ -151,7 +151,10 @@ const CategoryPage=()=>{
                     <h3>{t('categories.title')}</h3>
                     <NavButton 
                         label=''
-                        onClick={()=>{setShowAddCategory(true)}}
+                        onClick={()=>{
+                            resetonClose();
+                            setShowAddCategory(true)
+                        }}
                         backgroundColor='#140C6F'
                     />
                 </div>
@@ -166,7 +169,7 @@ const CategoryPage=()=>{
                 <form onSubmit={handleSubmit(submitForm)}>
                     <div className="__add_category">
                         <div className="__title">
-                            <h3>{t('categories.new-category')}</h3>
+                            <h3>{type==='edit' ? t('categories.edit-category') : t('categories.new-category')}</h3>
                             <AiOutlineClose 
                                 className="__close" 
                                 onClick={()=>resetonClose()}
@@ -194,7 +197,7 @@ const CategoryPage=()=>{
                             </div>
                             <div className="__button">
                                 <FormButton
-                                    label={t('categories.add')}
+                                    label={type==='edit' ? t('categories.edit') : t('categories.add')}
                                     backgroundColor="#FFFFFF"
                                     color="#140C6F"
                                     type="submit"

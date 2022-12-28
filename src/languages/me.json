@@ -90,11 +90,26 @@
         "name":"Naziv kategorije",
         "color":"Boja",
         "new-category":"Nova kategorija",
+        "edit-category":"Izmijeni kategoriju",
         "add":"Dodaj",
+        "edit":"Izmijeni",
         "errors":{
             "required":"Polje je obavezno!",
             "min":"Polje mora imati barem {number} karaktera!",
             "max":"Polje ne može imati više od {number} karaktera!"
+        }
+    },
+    "profile":{
+        "title":"Izmijena profila",
+        "name":"Ime i prezime",
+        "password":"Lozinka",
+        "edit-image":"Izmjena fotografije",
+        "edit-content":"Izaberite novu profilnu fotografiju",
+        "errors":{
+            "min":"Polje mora imati najmanje {number} karaktera!",
+            "max":"Polje ne može imati više od {number} karaktera!",
+            "required":"Polje je obavezno!",
+            "format":"Format nije podržan!"
         }
     }     
 }

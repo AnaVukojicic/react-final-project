@@ -90,11 +90,26 @@
         "name":"Category name",
         "color":"Color",
         "new-category":"New category",
+        "edit-category":"Edit category",
         "add":"Add",
+        "edit":"Edit",
         "errors":{
             "required":"Field is required!",
             "min":"Field must have at least {number} characters!",
             "max":"Field cannot have more than {number} characters!"
+        }
+    },
+    "profile":{
+        "title":"Edit profile",
+        "name":"First name and last name",
+        "password":"Password",
+        "edit-image":"Edit photo",
+        "edit-content":"Choose new profile photo",
+        "errors":{
+            "min":"Field must have at least {number} characters!",
+            "max":"Field cannot have more than {number} characters!",
+            "required":"Field is required!",
+            "format":"File format is not supported!"
         }
     }
 }
