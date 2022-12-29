@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from "./FieldWrapper.module.scss";
+import PropTypes from 'prop-types';
 
 const FieldWrapper = ({label='',error='',children,shrink=''})=> {
     return(
@@ -12,6 +13,13 @@ const FieldWrapper = ({label='',error='',children,shrink=''})=> {
         </div>
 
     );
+}
+
+FieldWrapper.propTypes={
+    label:PropTypes.string,
+    error:PropTypes.string,
+    children:PropTypes.any,
+    shrink:PropTypes.string
 }
 
 export default FieldWrapper;

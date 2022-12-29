@@ -1,6 +1,7 @@
 import React from 'react';
 import { t } from 'react-switch-lang';
 import FormButton from '../formButton/FormButton';
+import PropTypes from 'prop-types';
 
 const FormButtonGroup=({onClick})=>{
     return(
@@ -19,6 +20,10 @@ const FormButtonGroup=({onClick})=>{
             />
         </>
     )
+}
+
+FormButtonGroup.propTypes={
+    onClick:PropTypes.func.isRequired
 }
 
 export default FormButtonGroup;

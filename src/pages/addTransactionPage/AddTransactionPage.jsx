@@ -16,6 +16,7 @@ import { categoryService } from "../../services/CategoryService";
 import { expenseService } from "../../services/ExpenseService";
 import { useNavigate, useParams } from "react-router-dom";
 import FormButtonGroup from "../../components/buttons/formButtonGroup/FormButtonGroup";
+import PropTypes from 'prop-types';
 
 const AddTransactionPage=({type})=>{
     const {id}=useParams();
@@ -191,6 +192,10 @@ const AddTransactionPage=({type})=>{
             </div>
         </form>
     )
+}
+
+AddTransactionPage.propTypes={
+    type:PropTypes.oneOf(['add','edit']).isRequired
 }
 
 export default AddTransactionPage;

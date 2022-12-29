@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './OptionButtons.module.scss';
 import DeleteIcon from '../../../images/DeleteIcon.svg';
 import EditIcon from '../../../images/Editicon.svg';
+import PropTypes from 'prop-types';
 
 const OptionButtons=({handleEdit,handleDelete})=>{
     return(
@@ -10,6 +11,11 @@ const OptionButtons=({handleEdit,handleDelete})=>{
             <button type='button' onClick={handleDelete}><img src={DeleteIcon} alt=''/></button>
         </div>
     )
+}
+
+OptionButtons.propTypes={
+    handleEdit:PropTypes.func.isRequired,
+    handleDelete:PropTypes.func.isRequired
 }
 
 export default OptionButtons;

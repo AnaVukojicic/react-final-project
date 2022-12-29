@@ -8,6 +8,7 @@ import { categoryService } from '../../../services/CategoryService';
 import './OptionsForm.scss';
 import {t} from 'react-switch-lang';
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 
 const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
     const navigate=useNavigate();
@@ -77,6 +78,13 @@ const OptionsForm=({descriptionChange,dateChange,categoryChange,typeChange})=>{
             </div>
         </div>
     )
+}
+
+OptionsForm.propTypes={
+    descriptionChange:PropTypes.func,
+    dateChange:PropTypes.func,
+    categoryChange:PropTypes.func,
+    typeChange:PropTypes.func
 }
 
 export default OptionsForm;

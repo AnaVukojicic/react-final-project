@@ -4,6 +4,7 @@ import  {BarChart,Bar,XAxis,YAxis,CartesianGrid,Tooltip,Cell,ResponsiveContainer
 import { dashboardService } from '../../../services/DashboardService';
 import classes from './Chart.module.scss';
 import {t} from 'react-switch-lang';
+import PropTypes from 'prop-types';
 
 const Chart=({type,month})=>{
     const [height,setHeight]=useState(100)
@@ -48,6 +49,11 @@ const Chart=({type,month})=>{
             }
         </>
     );
+}
+
+Chart.propTypes={
+    type:PropTypes.string.isRequired,
+    month:PropTypes.number.isRequired
 }
 
 export default Chart;

@@ -3,6 +3,7 @@ import './InputField.scss';
 import { Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
+import PropTypes from 'prop-types';
 
 const InputField=({placeholder,type='text',label,error,name,control,bordered=true})=>{
     return (
@@ -24,6 +25,16 @@ const InputField=({placeholder,type='text',label,error,name,control,bordered=tru
         </FieldWrapper>
         
     );
+}
+
+InputField.propTypes={
+    placeholder:PropTypes.string,
+    type:PropTypes.string,
+    label:PropTypes.string,
+    error:PropTypes.string,
+    name:PropTypes.string.isRequired,
+    control:PropTypes.object.isRequired,
+    bordered:PropTypes.bool
 }
 
 export default InputField;

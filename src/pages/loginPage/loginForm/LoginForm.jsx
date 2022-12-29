@@ -39,9 +39,9 @@ const LoginForm=()=>{
     }
 
     const shema=yup.object().shape({
-        email: yup.string().trim().email('Polje mora da sarzi email adresu').required('Polje je obavezno!'),
-        password: yup.string().min(8,'Lozinka ne moze biti kraca od 8 karaktera')
-            .max(16,'Lozinka ne moze biti duza od 16 karaktera').required('Lozinka je obavezna!'),
+        email: yup.string().trim().email('Polje mora da sarži email adresu!').required('Polje je obavezno!'),
+        password: yup.string().min(8,'Lozinka ne može biti kraća od 8 karaktera!')
+            .max(16,'Lozinka ne može biti duža od 16 karaktera').required('Lozinka je obavezna!'),
     })
 
     const {handleSubmit, control, formState:{errors}}=useForm({resolver: yupResolver(shema)})
@@ -54,19 +54,19 @@ const LoginForm=()=>{
         <div className={classes['container']}>
             <form onSubmit={handleSubmit(submitForm)}>
                 <InputField
-                    placeholder="Enter e-mail"
+                    placeholder="Unesite e-mail"
                     name="email"
                     control={control}
                     error={errors?.email?.message}
                 />
                 <PasswordField
-                    placeholder="Enter password"
+                    placeholder="Unesite password"
                     name="password"
                     control={control}
                     error={errors?.password?.message}
                 />  
                 <p className={classes['forgot-password']}>
-                    Forgot password
+                    Zaboravili ste lozinku
                 </p>
                 <div className={classes['button-container']}>
                     <FormButton 

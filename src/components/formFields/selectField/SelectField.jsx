@@ -3,6 +3,7 @@ import React from 'react';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
 import './SelectField.scss';
+import PropTypes from 'prop-types';
 
 const SelectField=({placeholder,label,error,control,name,options,multiple=false,bordered=true})=>{
     return(
@@ -25,6 +26,20 @@ const SelectField=({placeholder,label,error,control,name,options,multiple=false,
             />
         </FieldWrapper>
     )
+}
+
+SelectField.propTypes={
+    placeholder:PropTypes.string,
+    label:PropTypes.string,
+    error:PropTypes.string,
+    name:PropTypes.string.isRequired,
+    control:PropTypes.object.isRequired,
+    options:PropTypes.arrayOf(PropTypes.shape({
+        label:PropTypes.string,
+        value:PropTypes.string
+    })).isRequired,
+    multiple:PropTypes.bool,
+    bordered:PropTypes.bool
 }
 
 export default SelectField;

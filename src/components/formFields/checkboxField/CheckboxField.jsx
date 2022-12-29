@@ -3,6 +3,7 @@ import React from 'react';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
 import './CheckboxField.scss';
+import PropTypes from 'prop-types';
 
 const CheckboxField=({label,error,control,name,options})=>{
     return(
@@ -21,6 +22,17 @@ const CheckboxField=({label,error,control,name,options})=>{
             />
         </FieldWrapper>
     )
+}
+
+CheckboxField.propTypes={
+    label:PropTypes.string,
+    error:PropTypes.string,
+    control:PropTypes.object.isRequired,
+    name:PropTypes.string.isRequired,
+    options:PropTypes.arrayOf(PropTypes.shape({
+        label:PropTypes.string,
+        key:PropTypes.string
+    })).isRequired
 }
 
 export default CheckboxField;

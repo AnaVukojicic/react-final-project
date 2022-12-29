@@ -9,6 +9,7 @@ import { profileService } from '../../../services/ProfileService';
 import { useUser } from '../../../contexts/UserContext';
 import FileField from '../../../components/formFields/fileField/FileField';
 import FormButtonGroup from '../../../components/buttons/formButtonGroup/FormButtonGroup';
+import PropTypes from 'prop-types';
 
 const ImageModalForm=({content,id,cancel})=>{
     const queryClient=useQueryClient();
@@ -58,6 +59,12 @@ const ImageModalForm=({content,id,cancel})=>{
             </div>
         </form>
     )
+}
+
+ImageModalForm.propTypes={
+    content:PropTypes.string,
+    id:PropTypes.number.isRequired,
+    cancel:PropTypes.func
 }
 
 export default ImageModalForm;

@@ -6,7 +6,7 @@ import RegisterForm from "./registerForm/RegisterForm";
 const RegisterPage=()=>{
     return(
         <AuthLayout page="register">
-            <h3 className={classes['title']}>Welcome</h3>
+            <h3 className={classes['title']}>Dobrodošli</h3>
             <div className={classes['form-container']}>
                 <RegisterForm/>
             </div>

@@ -8,7 +8,7 @@ const LoginPage=()=>{
     return(
         <AuthLayout page="login">
             <div className={classes['container']}>
-                <h3 className={classes['title']}>Welcome back</h3>
+                <h3 className={classes['title']}>Dobrodošli nazad</h3>
                 <div className={classes['img-container']}>
                     <img src={LoginImage} alt="login"/>
                 </div>

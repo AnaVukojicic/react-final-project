@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classes from './ChartButton.module.scss';
 import { AiFillCaretDown } from "react-icons/ai";
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const ChartButton=({label,data})=>{
     const [opened,setOpened]=useState(false);
@@ -27,6 +28,11 @@ const ChartButton=({label,data})=>{
             </div>
         </div>
     );
+}
+
+ChartButton.propTypes={
+    label:PropTypes.string,
+    data:PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default ChartButton;

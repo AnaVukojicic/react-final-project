@@ -7,6 +7,7 @@ import './DropdownItem.scss';
 import { t } from 'react-switch-lang';
 import { authService } from "../../../services/AuthService";
 import { storageService } from "../../../services/StorageService";
+import PropTypes from 'prop-types';
 
 const DropdownItem=({closeNav})=>{
     const navigate=useNavigate();
@@ -65,6 +66,10 @@ const DropdownItem=({closeNav})=>{
             </Dropdown>
         </div>
     );
+}
+
+DropdownItem.propTypes={
+    closeNav:PropTypes.func
 }
 
 export default DropdownItem;

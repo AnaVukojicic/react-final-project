@@ -3,6 +3,7 @@ import React from 'react';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
 import '../dateField/DateField.scss';
+import PropTypes from 'prop-types';
 
 const TimeField=({placeholder,label,error,control,name,bordered=true})=>{
     return(
@@ -23,6 +24,15 @@ const TimeField=({placeholder,label,error,control,name,bordered=true})=>{
             />
         </FieldWrapper>
     )
+}
+
+TimeField.propTypes={
+    placeholder:PropTypes.string,
+    label:PropTypes.string,
+    error:PropTypes.string,
+    name:PropTypes.string.isRequired,
+    control:PropTypes.object.isRequired,
+    bordered:PropTypes.bool
 }
 
 export default TimeField;

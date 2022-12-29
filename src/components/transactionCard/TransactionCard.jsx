@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 import classes from './TransactionCard.module.scss';
+import PropTypes from 'prop-types';
 
 const TransactionCard=({title,amount,type='total'})=>{
     return(
@@ -15,6 +16,12 @@ const TransactionCard=({title,amount,type='total'})=>{
             </h3>
         </div>
     );
+}
+
+TransactionCard.propTypes={
+    title:PropTypes.string,
+    amount:PropTypes.string,
+    type:PropTypes.oneOf(['expense','profit','total']).isRequired
 }
 
 export default TransactionCard;

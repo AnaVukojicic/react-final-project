@@ -14,10 +14,11 @@ import { profileService } from "../../services/ProfileService";
 import { useModal } from "../../contexts/ModalContext";
 import ImageModalForm from "./imageModal/ImageModalForm";
 import FormButtonGroup from "../../components/buttons/formButtonGroup/FormButtonGroup";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage=()=>{
     const queryClient=useQueryClient();
-    // const navigate=useNavigate()
+    const navigate=useNavigate()
     const {userData,setUserData}=useUser();
     const {open,close}=useModal();
 
@@ -117,7 +118,7 @@ const ProfilePage=()=>{
                     </div>
                 </div>
                 <div className={classes['buttons']}>
-                    <FormButtonGroup/>
+                    <FormButtonGroup onClick={()=>navigate(-1)}/>
                 </div>
             </div>
         </form>

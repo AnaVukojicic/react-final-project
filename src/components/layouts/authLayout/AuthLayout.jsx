@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './AuthLayout.module.scss';
 import Logo from '../../../images/Logo.svg';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const AuthLayout=({page,children})=>{
     return(
@@ -17,17 +18,22 @@ const AuthLayout=({page,children})=>{
             <div className={classes['sign-up']}>
                 {page==='register' &&
                     <p>
-                        Already have an account ? <span><Link to='/login'>Sign in</Link></span>
+                        Već imate profil ? <span><Link to='/login'>Sign in</Link></span>
                     </p>
                 }
                 {page==='login' &&
                     <p>
-                        Don't have an account ? <span><Link to='/register'>Sign up</Link></span>
+                        Nemate profil ? <span><Link to='/register'>Sign up</Link></span>
                     </p>
                 }
             </div>
         </div>
     );
+}
+
+AuthLayout.propTypes={
+    page:PropTypes.oneOf(['register','login']).isRequired,
+    children:PropTypes.any
 }
 
 export default AuthLayout;

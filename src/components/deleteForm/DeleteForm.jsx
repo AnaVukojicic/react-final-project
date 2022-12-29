@@ -5,6 +5,7 @@ import { categoryService } from '../../services/CategoryService';
 import { expenseService } from '../../services/ExpenseService';
 import FormButton from '../buttons/formButton/FormButton';
 import './DeleteForm.scss';
+import PropTypes from 'prop-types';
 
 const DeleteForm=({id,label,cancel,type})=>{
     const queryClient = useQueryClient();
@@ -53,6 +54,13 @@ const DeleteForm=({id,label,cancel,type})=>{
             </div>
         </div>
     )
+}
+
+DeleteForm.propTypes={
+    id:PropTypes.number.isRequired,
+    label:PropTypes.string,
+    cancel:PropTypes.func,
+    type:PropTypes.oneOf(['transaction','category']).isRequired
 }
 
 export default DeleteForm;

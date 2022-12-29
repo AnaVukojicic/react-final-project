@@ -3,6 +3,7 @@ import './FileField.scss';
 import { Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
+import PropTypes from 'prop-types';
 
 const FileField=({label,error,name,control,onChange})=>{
     return (
@@ -26,6 +27,14 @@ const FileField=({label,error,name,control,onChange})=>{
         </FieldWrapper>
         
     );
+}
+
+FileField.propTypes={
+    label:PropTypes.string,
+    error:PropTypes.string,
+    name:PropTypes.string.isRequired,
+    control:PropTypes.object.isRequired,
+    onChange:PropTypes.func
 }
 
 export default FileField;
