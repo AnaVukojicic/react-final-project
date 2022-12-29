@@ -1,7 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { t } from "react-switch-lang";
-import FormButton from "../../components/buttons/formButton/FormButton";
 import InputField from "../../components/formFields/inputField/InputField";
 import PasswordField from "../../components/formFields/passwordField/PasswordField";
 import classes from './ProfilePage.module.scss';
@@ -12,13 +11,13 @@ import { useForm } from "react-hook-form";
 import { useUser } from "../../contexts/UserContext";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { profileService } from "../../services/ProfileService";
-import { useNavigate } from "react-router-dom";
 import { useModal } from "../../contexts/ModalContext";
 import ImageModalForm from "./imageModal/ImageModalForm";
+import FormButtonGroup from "../../components/buttons/formButtonGroup/FormButtonGroup";
 
 const ProfilePage=()=>{
     const queryClient=useQueryClient();
-    const navigate=useNavigate()
+    // const navigate=useNavigate()
     const {userData,setUserData}=useUser();
     const {open,close}=useModal();
 
@@ -118,18 +117,7 @@ const ProfilePage=()=>{
                     </div>
                 </div>
                 <div className={classes['buttons']}>
-                    <FormButton 
-                        label={t('common.cancel')} 
-                        backgroundColor='#F2F2F2' 
-                        color='#140C6F'
-                        onClick={()=>navigate(-1)}
-                    />
-                    <FormButton 
-                        label={t('common.save')} 
-                        backgroundColor='#140C6F' 
-                        color='#FFFFFF'
-                        type='submit'
-                    />
+                    <FormButtonGroup/>
                 </div>
             </div>
         </form>

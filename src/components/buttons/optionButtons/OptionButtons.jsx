@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './OptionButtons.module.scss';
-import DeleteIcon from '../../images/DeleteIcon.svg';
-import EditIcon from '../../images/Editicon.svg';
+import DeleteIcon from '../../../images/DeleteIcon.svg';
+import EditIcon from '../../../images/Editicon.svg';
 
 const OptionButtons=({handleEdit,handleDelete})=>{
     return(

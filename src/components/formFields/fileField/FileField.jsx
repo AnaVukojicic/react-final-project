@@ -4,7 +4,7 @@ import { Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import FieldWrapper from '../fieldWrapper/FieldWrapper';
 
-const FileField=({placeholder,type='text',label,error,name,control,bordered=true,onChange})=>{
+const FileField=({label,error,name,control,onChange})=>{
     return (
         <FieldWrapper label={label} error={error}>
             <Controller
@@ -12,10 +12,8 @@ const FileField=({placeholder,type='text',label,error,name,control,bordered=true
                 name={name}
                 render={({field})=>(
                     <Input
-                        className='__input_field'   
-                        bordered={bordered}
-                        placeholder={placeholder}
-                        type={type}
+                        className='__file_field'   
+                        type="file"
                         status={error ? "error" : ""}
                         {...field}
                         onChange={(e)=>{

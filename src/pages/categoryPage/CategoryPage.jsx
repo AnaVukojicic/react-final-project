@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { t } from "react-switch-lang";
 import NavButton from "../../components/buttons/navButton/NavButton";
-import OptionButtons from "../../components/optionButtons/OptionButtons";
+import OptionButtons from "../../components/buttons/optionButtons/OptionButtons";
 import { categoryService } from "../../services/CategoryService";
 import './CategoryPage.scss';
 import { AiOutlineClose } from "react-icons/ai";

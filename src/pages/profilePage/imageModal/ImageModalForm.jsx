@@ -2,24 +2,24 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { t } from 'react-switch-lang';
-import FormButton from '../../../components/buttons/formButton/FormButton';
 import './ImageModalForm.scss';
 import * as yup from 'yup';
 import { useMutation, useQueryClient } from 'react-query';
 import { profileService } from '../../../services/ProfileService';
 import { useUser } from '../../../contexts/UserContext';
 import FileField from '../../../components/formFields/fileField/FileField';
+import FormButtonGroup from '../../../components/buttons/formButtonGroup/FormButtonGroup';
 
 const ImageModalForm=({content,id,cancel})=>{
     const queryClient=useQueryClient();
-    const {userData,setUserData}=useUser();
+    const {setUserData}=useUser();
     const allowedExtensions=['jpg','png','jfif','gif','jpeg','svg'];
     const [image,setImage]=useState(null)
 
     const editImage=useMutation(
         (data)=>profileService.editImage(data)
             .then(res=>{
-                queryClient.invalidateQueries('user',userData?.id)
+                queryClient.invalidateQueries('user',id)
                 setUserData(res)
                 cancel()
             })
@@ -47,25 +47,13 @@ const ImageModalForm=({content,id,cancel})=>{
             <div className='__image_form_container'>
                 <p className='__content'>{content}</p>
                 <FileField
-                    type='file'
                     control={control}
                     error={errors?.image?.message}
                     name='image'
                     onChange={(e)=>handleChange(e)}
                 />
                 <div className='__buttons'>
-                    <FormButton 
-                        onClick={()=>cancel()}
-                        label={t('common.cancel')}
-                        backgroundColor="#F2F2F2"
-                        color="black"
-                    />
-                    <FormButton 
-                        label={t('common.save')}
-                        backgroundColor="#140C6F"
-                        type='submit'
-                        color="#FFFFFF"
-                    />
+                    <FormButtonGroup onClick={()=>cancel()}/>
                 </div>
             </div>
         </form>

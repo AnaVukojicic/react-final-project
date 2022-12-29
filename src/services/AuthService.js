@@ -26,9 +26,9 @@ class AuthService{
 
     register(data){
         const formData={
-            "email":data.email,
-            "password":data.password,
-            "name":data.name
+            "email":data?.email,
+            "password":data?.password,
+            "name":data?.name
         }
         return requestInstance.post(this.api.register,formData)
             .then(res=>console.log(res))

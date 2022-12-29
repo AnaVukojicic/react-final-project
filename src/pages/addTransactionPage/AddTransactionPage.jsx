@@ -1,5 +1,4 @@
 import React from "react";
-import FormButton from "../../components/buttons/formButton/FormButton";
 import classes from './AddTransactionPage.module.scss';
 import {t} from 'react-switch-lang';
 import * as yup from 'yup';
@@ -16,6 +15,7 @@ import { useQuery } from "react-query";
 import { categoryService } from "../../services/CategoryService";
 import { expenseService } from "../../services/ExpenseService";
 import { useNavigate, useParams } from "react-router-dom";
+import FormButtonGroup from "../../components/buttons/formButtonGroup/FormButtonGroup";
 
 const AddTransactionPage=({type})=>{
     const {id}=useParams();
@@ -186,18 +186,7 @@ const AddTransactionPage=({type})=>{
                     </div>
                 </div>
                 <div className={classes['buttons']}>
-                    <FormButton 
-                        label={t('common.cancel')}
-                        backgroundColor="#F2F2F2" 
-                        color="#140C6F"
-                        onClick={()=>navigate(-1)}
-                    />
-                    <FormButton 
-                        label={t('common.save')}
-                        backgroundColor="#140C6F"
-                        color="#FFFFFF" 
-                        type="submit"
-                    />
+                    <FormButtonGroup onClick={()=>navigate(-1)}/>
                 </div>
             </div>
         </form>

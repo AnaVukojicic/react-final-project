@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { expenseService } from '../../services/ExpenseService';
 import './HistoryPage.scss';
-import OptionButtons from '../../components/optionButtons/OptionButtons';
+import OptionButtons from '../../components/buttons/optionButtons/OptionButtons';
 import OptionsForm from './optionsForm/OptionsForm';
 import {t} from 'react-switch-lang';
 import { useNavigate } from 'react-router-dom';
