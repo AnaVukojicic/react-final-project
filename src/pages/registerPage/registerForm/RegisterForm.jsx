@@ -6,9 +6,32 @@ import FormButton from '../../../components/buttons/formButton/FormButton';
 import { useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { authService } from "../../../services/AuthService";
+import { authService } from "../../../services/AuthService";
 
 const RegisterForm=()=>{
+    const registerUser=(data)=>{
+        authService.register(data)
+            .then(res=>{
+                authService.login(data?.email,data?.password)
+            })
+            .then(res=>{
+                storageService.set(storageKeys.TOKEN,res.getAccessToken())
+            })
+            .then(res=>{
+                return profileService.getUserInfo()
+            })
+            .then(res=>{
+                setUserData(res)
+                setTimeout(()=>{
+                    navigate('/home')
+                },300)
+            })
+            .catch(err=>{
+                console.log(err)
+                message.error('Greska prilikom registracije!')
+            })
+    }
+
     const shema=yup.object().shape({
         name: yup.string().trim().min(3,'Ime mora imati najmanje 3 karaktera')
             .max(100,'Ime ne može imati više od 100 karaktera').required('Polje je obavezno!'),
@@ -22,8 +45,7 @@ const RegisterForm=()=>{
     const {handleSubmit, control, formState:{errors}}=useForm({resolver: yupResolver(shema)})
 
     const submitForm=(data)=>{
-        console.log(data)
-        // authService.register(data)
+        registerUser(data)
     }
 
 

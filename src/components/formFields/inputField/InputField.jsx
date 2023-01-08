@@ -29,7 +29,7 @@ const InputField=({placeholder,type='text',label,error,name,control,bordered=tru
 
 InputField.propTypes={
     placeholder:PropTypes.string,
-    type:PropTypes.string,
+    type:PropTypes.oneOf(['text','email']),
     label:PropTypes.string,
     error:PropTypes.string,
     name:PropTypes.string.isRequired,

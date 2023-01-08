@@ -31,7 +31,7 @@ class AuthService{
             "name":data?.name
         }
         return requestInstance.post(this.api.register,formData)
-            .then(res=>console.log(res))
+            .then(res=>new AuthModel(res?.data?.data))
             .catch(err=>Promise.reject(err))
     }
 }
