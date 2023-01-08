@@ -6,6 +6,7 @@ import { expenseService } from '../../services/ExpenseService';
 import FormButton from '../buttons/formButton/FormButton';
 import './DeleteForm.scss';
 import PropTypes from 'prop-types';
+import { message } from 'antd';
 
 const DeleteForm=({id,label,cancel,type})=>{
     const queryClient = useQueryClient();
@@ -14,18 +15,24 @@ const DeleteForm=({id,label,cancel,type})=>{
         ()=>expenseService.deleteExpense(id)
             .then(res=>{
                 queryClient.invalidateQueries('expenses')
+                message.success(t('common.success'))
                 cancel()
             })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     )
 
     const deleteCategory=useMutation(
         ()=>categoryService.deleteCategory(id)
             .then(res=>{
                 queryClient.invalidateQueries('all-categories')
+                message.success(t('common.success'))
                 cancel()
             })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     )
 
     const deleteData=(id)=>{

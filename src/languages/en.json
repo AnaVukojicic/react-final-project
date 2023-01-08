@@ -10,7 +10,9 @@
         "delete-type":{
             "category":"kategoriju",
             "transaction":"transakciju"
-        }
+        },
+        "error":"There has been an error!",
+        "success":"Success!"
     },
     "navigation":{
         "history":"History of transactions",

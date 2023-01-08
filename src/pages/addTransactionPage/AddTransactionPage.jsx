@@ -17,6 +17,7 @@ import { expenseService } from "../../services/ExpenseService";
 import { useNavigate, useParams } from "react-router-dom";
 import FormButtonGroup from "../../components/buttons/formButtonGroup/FormButtonGroup";
 import PropTypes from 'prop-types';
+import { message } from "antd";
 
 const AddTransactionPage=({type})=>{
     const {id}=useParams();
@@ -55,8 +56,13 @@ const AddTransactionPage=({type})=>{
 
     const addExpense=(data)=>{
         return expenseService.addExpense(data)
-            .then(res=>navigate('/history'))
-            .catch(err=>console.log(err))
+            .then(res=>{
+                message.success(t('common.success'))
+                navigate('/history')
+            })
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     }
 
     const getExpenseInfo=(id)=>{
@@ -74,13 +80,20 @@ const AddTransactionPage=({type})=>{
                 })
                 return res
             })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     }
 
     const editExpense=(data)=>{
         return expenseService.editExpense(data)
-            .then(res=>navigate('/history'))
-            .catch(err=>console.log(err))
+            .then(res=>{
+                message.success(t('common.success'))
+                navigate('/history')
+            })
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     }
 
     const shema=yup.object().shape({

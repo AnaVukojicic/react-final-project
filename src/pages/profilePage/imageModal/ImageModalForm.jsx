@@ -10,6 +10,7 @@ import { useUser } from '../../../contexts/UserContext';
 import FileField from '../../../components/formFields/fileField/FileField';
 import FormButtonGroup from '../../../components/buttons/formButtonGroup/FormButtonGroup';
 import PropTypes from 'prop-types';
+import { message } from 'antd';
 
 const ImageModalForm=({content,id,cancel})=>{
     const queryClient=useQueryClient();
@@ -21,10 +22,13 @@ const ImageModalForm=({content,id,cancel})=>{
         (data)=>profileService.editImage(data)
             .then(res=>{
                 queryClient.invalidateQueries('user',id)
+                message.success(t('common.success'))
                 setUserData(res)
                 cancel()
             })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     )
 
     const shema=yup.object().shape({

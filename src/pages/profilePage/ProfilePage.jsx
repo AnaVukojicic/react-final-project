@@ -15,6 +15,7 @@ import { useModal } from "../../contexts/ModalContext";
 import ImageModalForm from "./imageModal/ImageModalForm";
 import FormButtonGroup from "../../components/buttons/formButtonGroup/FormButtonGroup";
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const ProfilePage=()=>{
     const queryClient=useQueryClient();
@@ -32,6 +33,9 @@ const ProfilePage=()=>{
                 })
                 setUserData(res)
                 return res;
+            })
+            .catch(err=>{
+                message.error(t('common.error'))
             }),
         {
             enabled:true
@@ -42,9 +46,12 @@ const ProfilePage=()=>{
         (data)=>profileService.editUser(data)
             .then(res=>{
                 queryClient.invalidateQueries('user',userData?.id)
+                message.success(t('common.success'))
                 setUserData(res)
             })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                message.error(t('common.error'))
+            })
     )
 
     const openEditModal=()=>{

@@ -66,7 +66,7 @@ const LoginForm=()=>{
                     error={errors?.password?.message}
                 />  
                 <p className={classes['forgot-password']}>
-                    Zaboravili ste lozinku
+                    Zaboravili ste lozinku?
                 </p>
                 <div className={classes['button-container']}>
                     <FormButton 

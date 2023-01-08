@@ -7,8 +7,17 @@ import { useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { authService } from "../../../services/AuthService";
+import { storageService } from "../../../services/StorageService";
+import { storageKeys } from "../../../config/config";
+import { profileService } from "../../../services/ProfileService";
+import { useUser } from "../../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const RegisterForm=()=>{
+    const {setUserData}=useUser();
+    const navigate=useNavigate();
+
     const registerUser=(data)=>{
         authService.register(data)
             .then(res=>{

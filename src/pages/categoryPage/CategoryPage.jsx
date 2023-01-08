@@ -1,4 +1,4 @@
-import { Table } from "antd";
+import { message, Table } from "antd";
 import React, { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { t } from "react-switch-lang";
@@ -96,6 +96,9 @@ const CategoryPage=()=>{
             .then(res=>{
                 reset(res);
                 return res;
+            })
+            .catch(err=>{
+                message.error(t('common.error'))
             }),
         {
             enabled: type==='edit' ? true : false
@@ -105,17 +108,23 @@ const CategoryPage=()=>{
     const addCategory=useMutation(data=>categoryService.addCategory(data)
         .then(res=>{
             queryClient.invalidateQueries('all-categories')
+            message.success(t('common.success'))
             resetonClose()
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            message.error(t('common.error'))
+        })
     )
 
     const editCategory=useMutation(data=>categoryService.editCategory(data)
         .then(res=>{
             queryClient.invalidateQueries("all-categories")
+            message.success(t('common.success'))
             resetonClose()
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            message.error(t('common.error'))
+        })
     )
 
     const shema=yup.object().shape({
