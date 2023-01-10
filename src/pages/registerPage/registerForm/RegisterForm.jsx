@@ -21,7 +21,7 @@ const RegisterForm=()=>{
     const registerUser=(data)=>{
         authService.register(data)
             .then(res=>{
-                authService.login(data?.email,data?.password)
+                return authService.login(data?.email,data?.password)
             })
             .then(res=>{
                 storageService.set(storageKeys.TOKEN,res.getAccessToken())
@@ -36,8 +36,12 @@ const RegisterForm=()=>{
                 },300)
             })
             .catch(err=>{
-                console.log(err)
-                message.error('Greska prilikom registracije!')
+                if(err?.response?.data?.message==="The email has already been taken."){
+                    message.error("E-mail već postoji!")
+                }
+                else{
+                    message.error('Greška prilikom registracije!')
+                }
             })
     }
 
@@ -45,7 +49,7 @@ const RegisterForm=()=>{
         name: yup.string().trim().min(3,'Ime mora imati najmanje 3 karaktera')
             .max(100,'Ime ne može imati više od 100 karaktera').required('Polje je obavezno!'),
         email: yup.string().trim().email('Polje mora da sarži email adresu').required('Polje je obavezno!'),
-        password: yup.string().min(8,'Lozinka ne može biti kraca od 8 karaktera')
+        password: yup.string().min(8,'Lozinka ne može biti kraća od 8 karaktera')
             .max(16,'Lozinka ne može biti duža od 16 karaktera').required('Lozinka je obavezna!'),
         confirmPassword: yup.string().oneOf([yup.ref('password'),null],'Lozinke se ne poklapaju!')
             .required('Polje je obavezno!')

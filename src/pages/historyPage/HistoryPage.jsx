@@ -14,7 +14,7 @@ const HistoryPage=()=>{
     const navigate=useNavigate();
     const [type,setType]=useState('');
     const [description,setDescription]=useState('');
-    const [category,setCategory]=useState(null);
+    const [category,setCategory]=useState([]);
     const [date,setDate]=useState('');
     const {open,close}=useModal();
 

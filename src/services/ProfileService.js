@@ -21,7 +21,7 @@ class ProfileService{
             "password":data?.password
         }
         return requestInstance.put(`${this.api.edit_user}/${data?.id}`,formData)
-            .then(res=>{console.log(res?.data);return new ProfileModel(res?.data)})
+            .then(res=>new ProfileModel(res?.data?.data))
             .catch(err=>Promise.reject(err))
     }
 

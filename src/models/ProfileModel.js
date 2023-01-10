@@ -11,7 +11,12 @@ class ProfileModel{
     }
 
     getProfilePhoto(){
-        return `${baseURL}/storage/${this.profilePhoto}`;
+        if(this?.profilePhoto.includes('img')){
+            return this.profilePhotoPath
+        }
+        else{
+            return `${baseURL}/storage/${this.profilePhoto}`;
+        }
     }
 }
 

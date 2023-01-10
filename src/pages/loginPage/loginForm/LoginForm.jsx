@@ -33,7 +33,6 @@ const LoginForm=()=>{
                 },300)
             })
             .catch(err=>{
-                console.log(err)
                 message.error('Pogresni kredencijali')
             })
     }

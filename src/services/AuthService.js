@@ -4,7 +4,7 @@ import {requestInstance} from '../config/requestInstance';
 class AuthService{
     api={
         login: '/login',
-        register: '/v1/users',
+        register: '/register',
         logout: '/logout'
     }
 
@@ -14,13 +14,13 @@ class AuthService{
             "password":password
         }
         return requestInstance.post(this.api.login,formData)
-            .then(res=>new AuthModel(res.data))
+            .then(res=>new AuthModel(res?.data))
             .catch(err=>Promise.reject(err))
     }
 
     logout(){
         return requestInstance.post(this.api.logout)
-            .then(res=>new AuthModel(res.data))
+            .then(res=>new AuthModel(res?.data))
             .catch(err=>Promise.reject(err))
     }
 

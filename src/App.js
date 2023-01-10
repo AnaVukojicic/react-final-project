@@ -18,7 +18,7 @@ const queryClient=new QueryClient(queryClientConfig);
 const router=createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/register' element={<RegisterPage/>}/>
+      <Route path='/register' element={<ContextWrapper><RegisterPage/></ContextWrapper>}/>
       <Route path='/login' element={<ContextWrapper><LoginPage/></ContextWrapper>}/>
       <Route path='/' element={<ContextWrapper><DefaultLayout/></ContextWrapper>}>
         <Route index element={<HomePage/>}/>

@@ -20,13 +20,9 @@ class Expenseservice{
             ? (typeParam ? `&${this.params.description}${description}` 
                 : `?${this.params.description}${description}`) 
             : '';
-        const categoryParamArr=category 
-            ? category.map((c,i,arr)=>{
-                return (((typeParam || descriptionParam) || arr.indexOf(c)!==0) 
-                    ? `&${this.params.category}${c}` : `?${this.params.category}${c}`)
-                }) 
+        const categoryParam=category.length>0 
+            ? ((typeParam || descriptionParam) ? `&${this.params.category}${category.join(',')}` : `?${this.params.category}${category.join(',')}`)
             : '';
-        const categoryParam=categoryParamArr ? categoryParamArr.join('').replace(',','') : '';
         const dateParam=date.length>0 
             ? (((typeParam || descriptionParam) || categoryParam) ? `&${this.params.date}${date}` 
                 : `?${this.params.date}${date}`) 
